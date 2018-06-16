@@ -1,0 +1,63 @@
+{
+  "name": "react-starter-boilerplate-hmr",
+  "version": "1.0.0",
+  "description": "React starter boilerplate with Hot Module Replacement, React 16 and Webpack 4",
+  "main": "index.js",
+  "author": "Esau Silva",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack-dev-server --env.env=dev",
+    "dev:bundleanalyzer": "yarn dev -- --env.addons=bundleanalyzer",
+    "prebuild": "rimraf dist",
+    "build": "cross-env NODE_ENV=production webpack -p --env.env=prod",
+    "build:bundleanalyzer": "yarn build -- --env.addons=bundleanalyzer"
+  },
+  "dependencies": {
+    "react": "^16.4.0",
+    "react-delay-render": "^0.1.2",
+    "react-dom": "^16.4.0",
+    "react-imported-component": "^1.0.4",
+    "react-prop-types": "^0.4.0",
+    "react-router-dom": "^4.2.2",
+    "semantic-ui-react": "^0.75.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "chalk": "^2.4.1",
+    "cross-env": "^5.1.6",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-webpack-plugin": "^3.2.0",
+    "postcss-loader": "^2.1.5",
+    "react-hot-loader": "^4.2.0",
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.19.1",
+    "webpack": "^4.10.0",
+    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-cli": "^2.1.4",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/esausilva/react-starter-boilerplate-hmr.git"
+  },
+  "bugs": {
+    "url": "https://github.com/esausilva/react-starter-boilerplate-hmr/issues"
+  },
+  "keywords": [
+    "react",
+    "react 16",
+    "boilerplate",
+    "semantic ui",
+    "semantic ui react",
+    "webpack 4",
+    "webpack",
+    "hot module replacement",
+    "hmr"
+  ]
+}
