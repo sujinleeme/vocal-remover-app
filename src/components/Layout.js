@@ -9,7 +9,7 @@ const Layout = ({children}) => {
 		<Container>
 			<Link to="/">
 				<Header as="h1" className={ h1 }>
-					react-starter-boilerplate-hmr
+					DEMO
 				</Header>
 			</Link>
 			{ children }
