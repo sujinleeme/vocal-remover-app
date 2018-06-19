@@ -1,4 +1,4 @@
-# Music Source Seperation App 
+# Music Source Separation App 
 
 ### Usage
 
