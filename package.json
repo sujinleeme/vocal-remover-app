@@ -1,9 +1,9 @@
 {
-  "name": "react-starter-boilerplate-hmr",
+  "name": "music-source-separation-app",
   "version": "1.0.0",
-  "description": "React starter boilerplate with Hot Module Replacement, React 16 and Webpack 4",
+  "description": "",
   "main": "index.js",
-  "author": "Esau Silva",
+  "author": "Sujin Lee",
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --env.env=dev",
@@ -43,10 +43,7 @@
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/esausilva/react-starter-boilerplate-hmr.git"
-  },
+  "repository": "https://github.com/esausilva/react-starter-boilerplate-hmr.git",
   "bugs": {
     "url": "https://github.com/esausilva/react-starter-boilerplate-hmr/issues"
   },
