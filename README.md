@@ -1,4 +1,9 @@
-# Music Source Separation App 
+# Vocal Remover for Karaoke
+
+### About
+
+* Entry project for [Pink Coding Fest by Red Hat Korea 2018](https://www.redhat.com/ko/events/pink-coding-fest-2018)
+
 
 ### Usage
 
