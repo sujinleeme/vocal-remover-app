@@ -1,5 +1,6 @@
 import React from "react"
 import { Switch, BrowserRouter as Router, Route } from "react-router-dom"
+import { ConnectedRouter } from "react-router-redux"
 import importedComponent from "react-imported-component"
 
 import Home from "./Home"
@@ -20,15 +21,11 @@ const AsyncNoMatch = importedComponent(
 
 const App = () => {
 	return (
-		<Router>
-			<div>
-				<Switch>
-					<Route exact path="/" component={ Home }/>
-					<Route exact path="/dynamic" component={ AsyncDynamicPAge }/>
-					<Route component={ AsyncNoMatch }/>
-				</Switch>
-			</div>
-		</Router>
+		<Switch>
+			<Route exact path="/" component={ Home }/>
+			<Route exact path="/dynamic" component={ AsyncDynamicPAge }/>
+			<Route component={ AsyncNoMatch }/>
+		</Switch>
 	)
 }
 
