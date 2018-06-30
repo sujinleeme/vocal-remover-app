@@ -11,7 +11,12 @@ let InputAudioSchema = new mongoose.Schema(
 	}
 )
 
-InputAudioSchema.methods.getUserRawAudioFile = (_id) => {
+InputAudioSchema.methods.addAuthor = (author_id) => {
+	this.author = author_id
+	return this.save()
+}
+
+InputAudioSchema.methods.getUserInputAudio = (_id) => {
 	InputAudioSchema.find({'author': _id}).then((audio) => {
 		"use strict"
 		return audio
