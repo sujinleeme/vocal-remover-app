@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose")
 
 let OutputAudioSchema = new mongoose.Schema(
 	{
@@ -6,7 +6,7 @@ let OutputAudioSchema = new mongoose.Schema(
 		title: String,
 		author: {
 			type: mongoose.Schema.Types.ObjectId,
-			ref: 'User'
+			ref: "User"
 		}
 	}
 )
@@ -17,12 +17,12 @@ OutputAudioSchema.methods.addAuthor = (author_id) => {
 }
 
 OutputAudioSchema.methods.getUserInputAudio = (_id) => {
-	OutputAudioSchema.find({'author': _id}).then((audio) => {
+	OutputAudioSchema.find({"author": _id}).then((audio) => {
 		"use strict"
 		return audio
 	})
 }
 
-module.exports = mongoose.model('OutputAudio', OutputAudioSchema)
+module.exports = mongoose.model("OutputAudio", OutputAudioSchema)
 
 

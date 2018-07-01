@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose")
 
 let UserSchema = new mongoose.Schema(
 	{
@@ -7,9 +7,9 @@ let UserSchema = new mongoose.Schema(
 		provider: String,
 		provider_id: String,
 		token: String,
-		provider_pic: String,
+		provider_pic: String
 		
 	}
 )
 
-module.exports = mongoose.model('User', UserSchema)
+module.exports = mongoose.model("User", UserSchema)
