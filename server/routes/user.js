@@ -1,4 +1,4 @@
-const userController = require('./../controllers/user.ctrl')
+const userController = require("./../controllers/user.ctrl")
 
 module.exports = (router) => {
 	
@@ -6,21 +6,21 @@ module.exports = (router) => {
 	 * get a user
 	 */
 	router
-		.route('/user/:id')
+		.route("/user/:id")
 		.get(userController.getUser)
 	
 	/**
 	 * get a user profile
 	 */
 	router
-		.route('/user/profile/:id')
+		.route("/user/profile/:id")
 		.get(userController.getUserProfile)
 	
 	/**
 	 * adds a user
 	 */
 	router
-		.route('/user')
+		.route("/user")
 		.post(userController.addUser)
-
+	
 }

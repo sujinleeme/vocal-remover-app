@@ -1,4 +1,4 @@
-const inputAudioController = require("./../controller/inputAudio.ctrl")
+const inputAudioController = require("../controllers/inputAudio.ctrl")
 const multipart = require("connect-multiparty")
 const multipartWare = multipart()
 
