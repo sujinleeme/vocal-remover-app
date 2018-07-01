@@ -14,12 +14,12 @@ module.exports = {
 		const saveInputAudio = (obj) => {
 			new InputAudio(obj).save((err, audio) => {
 				if (err)
-					res.send(err)
+					res.sendStatus(err)
 				else if (!audio)
-					res.send(400)
+					res.sendStatus(400)
 				else {
 					return InputAudio.addAuthor(req.body.author_id).then(_audio =>
-						res.send(_audio)
+						res.sendStatus(_audio)
 					)
 				}
 				next()
