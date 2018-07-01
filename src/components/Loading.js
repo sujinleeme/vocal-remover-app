@@ -1,7 +1,8 @@
 import React from "react"
-import { Loader } from "semantic-ui-react"
+import PropTypes from "prop-types"
+import LinearProgress from "@material-ui/core/LinearProgress"
 import ReactDelayRender from "react-delay-render"
 
-const Loading = () => <Loader active size="massive"/>
+const Loading = () => <LinearProgress />
 
 export default ReactDelayRender({delay: 300})(Loading)
