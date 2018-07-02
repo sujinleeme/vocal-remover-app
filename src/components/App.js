@@ -5,9 +5,11 @@ import importedComponent from "react-imported-component"
 
 import Home from "./Home"
 import Loading from "./Loading"
+import Header from "./Header"
 
-const AsyncDynamicPAge = importedComponent(
-	() => import(/* webpackChunkName:'DynamicPage' */ "./DynamicPage"),
+
+const Login = importedComponent(
+	() => import(/* webpackChunkName:'Login' */ "./Login"),
 	{
 		LoadingComponent: Loading
 	}
@@ -21,11 +23,14 @@ const AsyncNoMatch = importedComponent(
 
 const App = () => {
 	return (
-		<Switch>
-			<Route exact path="/" component={ Home }/>
-			<Route exact path="/dynamic" component={ AsyncDynamicPAge }/>
-			<Route component={ AsyncNoMatch }/>
-		</Switch>
+		<div>
+			<Header/>
+			<Switch>
+				<Route exact path="/" component={ Home }/>
+				<Route exact path="/login" component={ Login }/>
+				<Route component={ AsyncNoMatch }/>
+			</Switch>
+		</div>
 	)
 }
 

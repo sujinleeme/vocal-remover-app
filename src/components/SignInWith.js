@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "./Layout"
 
-const LoginPage = () => {
+const Login = () => {
 	return (
 		<Layout>
 			<p>hihi</p>
@@ -9,4 +9,4 @@ const LoginPage = () => {
 	)
 }
 
-export default LoginPage
+export default Login
