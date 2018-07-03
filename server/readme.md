@@ -3,7 +3,7 @@
 To install and start the API server, run the following commands in this directory:
 
 * `yarn install`
-* `node server`
+* `node app.js`
 
 ## Using The Server
 

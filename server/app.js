@@ -9,7 +9,7 @@ const helmet = require("helmet")
 
 const app = express()
 const router = express.Router()
-const url = process.env.MONGODB_URI || "mongodb://localhost:27017/vocal-remover-app"
+const url = process.env.MONGODB_URI || "mongodb://localhost:27017/vocal-remover"
 
 /** connect to MongoDB datastore */
 try {

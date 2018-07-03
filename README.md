@@ -18,6 +18,20 @@ Run development server
 $ yarn dev
 ```
 
+To start a MongoDB server, run the command
+
+```
+$ mongod
+```
+
+Run backend server
+
+```
+$ yarn server
+```
+
+
+
 ### Building
 
 ```
