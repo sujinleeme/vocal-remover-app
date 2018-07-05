@@ -2,6 +2,7 @@
 
 ### About
 
+[Music and Audio Research Group, Seoul National University](http://marg.snu.ac.kr/)
 
 
 ### Usage
@@ -15,13 +16,7 @@ $ yarn
 Run development server
 
 ```
-$ yarn dev
-```
-
-To start a MongoDB server, run the command
-
-```
-$ mongod
+$ yarn client
 ```
 
 Run backend server
@@ -30,7 +25,17 @@ Run backend server
 $ yarn server
 ```
 
+Run development and backend server together
 
+```
+$ yarn dev
+```
+
+To start a MongoDB server
+
+```
+$ mongod
+```
 
 ### Building
 
