@@ -5,36 +5,27 @@ import importedComponent from "react-imported-component"
 import Header from "./components/Header"
 import Home from "./components/Home"
 import Loading from "./components/Loading"
-
 import SinginModal from "./modal"
 
+const Login = importedComponent(() =>
+	import(/* webpackChunkName:'Login' */ "./components/Login"), {
+	LoadingComponent: Loading
+})
 
+const AsyncNoMatch = importedComponent(() =>
+	import(/* webpackChunkName:'NoMatch' */ "./components/NoMatch"), {
+	LoadingComponent: Loading
+})
 
+const Signup = importedComponent(() => import(/* webpackChunkName:'Login' */ "./signup"), {
+	LoadingComponent: Loading
+})
 
-const Login = importedComponent(
-	() => import(/* webpackChunkName:'Login' */ "./components/Login"),
-	{
-		LoadingComponent: Loading
-	}
-)
-const AsyncNoMatch = importedComponent(
-	() => import(/* webpackChunkName:'NoMatch' */ "./components/NoMatch"),
-	{
-		LoadingComponent: Loading
-	}
-)
-
-const Signup = importedComponent(
-	() => import(/* webpackChunkName:'Login' */ "./signup"),
-	{
-		LoadingComponent: Loading
-	}
-)
 const App = () => {
 	return (
 		<div>
 			<Header/>
-			<SinginModal />
+			<SinginModal/>
 			<Switch>
 				<Route exact path="/" component={ Home }/>
 				<Route exact path="/signup" component={ Signup }/>
@@ -44,6 +35,5 @@ const App = () => {
 		</div>
 	)
 }
-
 
 export default App
