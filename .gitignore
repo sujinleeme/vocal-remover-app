@@ -3,3 +3,5 @@ dist
 .DS_Store
 yarn-error.log
 .idea
+package-lock.json
+git rm -r --cached .
