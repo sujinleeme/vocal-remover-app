@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 const config = {
 	entry: {
-		vendor: ["@material-ui/core", "babel-polyfill", "react", "react-dom", "redux"]
+		vendor: ["@material-ui/core", "@material-ui/icons", "babel-polyfill", "react", "react-dom", "redux"]
 	},
 	output: {
 		path: commonPaths.outputPath,

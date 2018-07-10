@@ -1,15 +1,9 @@
-import { HIDE_MODAL, SHOW_MODAL } from "./constants"
+import { MODAL_REQUESTING, MODAL_SUCCESS, MODAL_FAIL } from "./constants"
 
-export const showModal = ({modalType, modalProps}) => {
-	type: SHOW_MODAL
-	modalType,
-		modalProps
+export const modalRequest = ({modalProps, modalType}) => {
+	return {
+		type: MODAL_REQUESTING,
+		modalProps,
+		modalType
+	}
 }
-
-export const closeModal = ({modalType, modalProps}) => {
-	type: HIDE_MODAL
-	modalType,
-		modalProps
-}
-
-

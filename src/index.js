@@ -5,6 +5,9 @@ import { applyMiddleware, createStore, compose } from "redux"
 import { Provider } from "react-redux"
 import { ConnectedRouter, routerMiddleware } from "react-router-redux"
 
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { fab } from "@fortawesome/free-brands-svg-icons"
+
 import App from "./App"
 import rootSagas from "./sagas"
 import "./index.css"
@@ -22,7 +25,6 @@ const logger = createLogger()
 const middleware = [sagaMiddleware, logger, historyMiddleware]
 
 const composeEnhancers =
-	
 	process.env.NODE_ENV !== "production" &&
 	composeWithDevTools ?
 		composeWithDevTools({
@@ -63,5 +65,8 @@ const render = Component =>
 	)
 
 render(App)
+
+// Add fontawesome
+library.add(fab)
 
 if (module.hot) module.hot.accept("./App", () => render(App))

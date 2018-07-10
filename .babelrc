@@ -7,6 +7,14 @@
     "react-hot-loader/babel",
     "transform-class-properties",
     "@babel/plugin-syntax-dynamic-import",
-    "@babel/plugin-transform-regenerator"
-  ]
+    "@babel/plugin-transform-regenerator",
+    "babel-plugin-redux-saga"
+  ],
+  "env": {
+    "production": {
+      "plugins": [
+        "transform-react-remove-prop-types"
+      ]
+    }
+  }
 }

@@ -1,19 +1,21 @@
-import { takeLatest } from 'redux-saga/effects'
-import { HIDE_MODAL, SHOW_MODAL } from './constants'
+import { call, put, takeLatest, takeEvery } from "redux-saga/effects"
+import { MODAL_REQUESTING, MODAL_SUCCESS, MODAL_FAIL } from "./constants"
 
-// This will be run when the SIGNUP_REQUESTING
-// Action is found by the watcher
-function* openUserModal (action) {}
+function* modalFlow(action) {
+	console.log(action)
+	try {
+		const { modalProps, modalType } = action
+		yield put({ type: MODAL_SUCCESS, modalProps, modalType })
+	}
+	catch (error) {
+		yield put({ type: MODAL_FAIL, error })
 
-// Watches for the SIGNUP_REQUESTING action type
-// When it gets it, it will call signupFlow()
-// WITH the action we dispatched
-function* modalWatcher () {
-	// takeLatest() takes the LATEST call of that action and runs it
-	// if we we're to use takeEvery, it would take every single
-	// one of the actions and kick off a new task to handle it
-	// CONCURRENTLY!!!
-	yield takeLatest(HIDE_MODAL, modalFlow)
+	}
+	
 }
 
-export default signupWatcher
+function* modalWatcher() {
+	yield takeEvery(MODAL_REQUESTING, modalFlow)
+}
+
+export default modalWatcher

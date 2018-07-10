@@ -6,6 +6,11 @@ import Header from "./components/Header"
 import Home from "./components/Home"
 import Loading from "./components/Loading"
 
+import SinginModal from "./modal"
+
+
+
+
 const Login = importedComponent(
 	() => import(/* webpackChunkName:'Login' */ "./components/Login"),
 	{
@@ -29,6 +34,7 @@ const App = () => {
 	return (
 		<div>
 			<Header/>
+			<SinginModal />
 			<Switch>
 				<Route exact path="/" component={ Home }/>
 				<Route exact path="/signup" component={ Signup }/>
@@ -38,5 +44,6 @@ const App = () => {
 		</div>
 	)
 }
+
 
 export default App

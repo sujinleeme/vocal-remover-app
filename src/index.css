@@ -10,6 +10,10 @@ html, body {
 	color: #616161;
 }
 
+*:focus {
+	outline: none;
+}
+
 a:hover, a:visited, a:link, a:active {
 	text-decoration: none;
 	color: inherit;
@@ -17,15 +21,11 @@ a:hover, a:visited, a:link, a:active {
 
 a:hover, a:visited, a:link, a:active {
 	text-decoration: none;
-	fill: #4FC3F7
+	fill: #fff;
 }
 
 a svg {
 	fill: black;
-}
-
-svg:hover {
-	fill: #4FC3F7
 }
 
 div#root {

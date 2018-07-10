@@ -4,7 +4,6 @@ import { withStyles } from "@material-ui/core/styles"
 import MenuItem from "@material-ui/core/MenuItem"
 import TextField from "@material-ui/core/TextField"
 import Modal from "@material-ui/core/Modal"
-import Button from "@material-ui/core/Button"
 
 const styles = theme => ({
 	container: {
