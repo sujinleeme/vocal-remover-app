@@ -7,7 +7,7 @@ import CloseIcon from "@material-ui/icons/Close"
 import { modalRequest } from "./actions"
 import { modalContents } from "./contents"
 
-import Signup from "../sign-up"
+import Signup from "../auth"
 
 import { alignStyle } from "../common-styles"
 

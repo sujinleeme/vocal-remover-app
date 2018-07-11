@@ -1,20 +1,24 @@
 import {
 	SIGNUP_REQUESTING,
 	SIGNUP_SUCCESS,
-	SIGNUP_ERROR
+	SIGNUP_ERROR,
+	LOGIN_SUCCESS
 } from "./constants"
 
 const initialState = {
+	user: null,
 	requesting: false,
 	successful: false,
 	messages: [],
 	errors: []
 }
 
+
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SIGNUP_REQUESTING:
 			return {
+				user: null,
 				requesting: true,
 				successful: false,
 				messages: [{body: "Signing up...", time: new Date()}],
@@ -26,13 +30,14 @@ const reducer = (state = initialState, action) => {
 		// {"email": "of the new user", "id": "of the user"}
 		case SIGNUP_SUCCESS:
 			return {
+				user: action.response,
 				errors: [],
 				messages: [{
 					body: `Successfully created account for ${action.response.email}`,
 					time: new Date()
 				}],
 				requesting: false,
-				successful: true
+				successful: true,
 			}
 		
 		// reset the state but with errors!
@@ -41,6 +46,7 @@ const reducer = (state = initialState, action) => {
 		// the base message for now
 		case SIGNUP_ERROR:
 			return {
+				user: null,
 				errors: state.errors.concat([{
 					body: action.error.toString(),
 					time: new Date()

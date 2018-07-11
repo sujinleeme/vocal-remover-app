@@ -42,7 +42,9 @@ const Signup = (props) => {
 			<FacebookLogin
 				appId={ config.FACEBOOK_APP_ID }
 				autoLoad
-				callback={ (response) => console.log(response) }
+				fields="name,email,picture"
+				scope="public_profile"
+				callback={ (response) => signupRequest({response, channel: "facebook"})}
 				render={ renderProps => (
 					<SocialSignInButton
 						channel="facebook"
@@ -53,7 +55,6 @@ const Signup = (props) => {
 					/>
 				) }
 			/>
-			
 			
 			<SocialSignInButton
 				channel="google"
