@@ -5,8 +5,10 @@ import { withStyles } from "@material-ui/core/styles"
 import { Modal, Button, IconButton, Typography, Icon } from "@material-ui/core"
 import CloseIcon from "@material-ui/icons/Close"
 import { modalRequest } from "./actions"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { modalContents } from "./contents"
+
+import Signup from "../sign-up"
+
 import { alignStyle } from "../common-styles"
 
 const styles = theme => ({
@@ -51,16 +53,7 @@ const getModalStyle = () => {
 	}
 }
 
-// Signin.propTypes = {
-// 	classes: PropTypes.object.isRequired,
-// 	view: PropTypes.string.isRequired,
-// 	modalRequest: PropTypes.func.isRequired
-// }
-
-const Signin = (props) => {
-	
-	const {classes, modalRequest, view} = props
-	
+const Signin = ({classes, modalRequest, view}) => {
 	const body = modalContents({state: view})
 	return (
 		<div className={ classes.container }>
@@ -71,18 +64,10 @@ const Signin = (props) => {
 				{ body.subtitle }
 			</Typography>
 			<div className={ `${classes.container} ${classes.buttonGroup}` }>
-				<Button variant="outlined" className={ classes.social }>
-					<FontAwesomeIcon
-						icon={ ["fab", "facebook"] }
-						className={ classes.icon }/>
-					{ body.facebook }
-				</Button>
-				<Button variant="outlined" className={ classes.social }>
-					<FontAwesomeIcon
-						className={ classes.icon }
-						icon={ ["fab", "google"] }/>
-					{ body.google }
-				</Button>
+				<Signup
+					textButton={ {facebook: body.facebook, google: body.google} }
+					classes={ classes }
+				/>
 			</div>
 			<div>
 				<Button disabled={ true }>{ body.bottom }</Button>
@@ -94,6 +79,12 @@ const Signin = (props) => {
 		</div>
 	)
 }
+
+// Signin.propTypes = {
+// 	classes: PropTypes.object.isRequired,
+// 	view: PropTypes.string.isRequired,
+// 	modalRequest: PropTypes.func.isRequired
+// }
 
 // SigninModal.propTypes = {
 // 	classes: PropTypes.object.isRequired,
@@ -113,19 +104,17 @@ class SigninModal extends React.Component {
 				>
 					<div style={ getModalStyle() } className={ classes.paper }>
 						<div className={ classes.closeButton }>
-							
 							<IconButton className={ classes.button }
 							            aria-label="SING_IN"
 							            onClick={ () => modalRequest({modalProps: false}) }
 							>
 								<CloseIcon/>
-							
 							</IconButton>
 						</div>
 						<Signin
 							classes={ classes }
-							modalRequest={ modalRequest }
 							view={ modalView }
+							modalRequest={ modalRequest }
 						/>
 					</div>
 				</Modal>
