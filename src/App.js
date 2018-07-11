@@ -17,7 +17,7 @@ const AsyncNoMatch = importedComponent(() =>
 	LoadingComponent: Loading
 })
 
-const Signup = importedComponent(() => import(/* webpackChunkName:'Login' */ "./sign-up"), {
+const Signup = importedComponent(() => import(/* webpackChunkName:'Login' */ "./auth"), {
 	LoadingComponent: Loading
 })
 
@@ -28,8 +28,8 @@ const App = () => {
 			<SinginModal/>
 			<Switch>
 				<Route exact path="/" component={ Home }/>
-				<Route exact path="/signup" component={ Signup }/>
-				<Route exact path="/login" component={ Login }/>
+				{/*<Route exact path="/signup" component={ Signup }/>*/}
+				{/*<Route exact path="/login" component={ Login }/>*/}
 				<Route component={ AsyncNoMatch }/>
 			</Switch>
 		</div>
