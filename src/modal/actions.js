@@ -1,4 +1,4 @@
-import { MODAL_REQUESTING, MODAL_SUCCESS, MODAL_FAIL } from "./constants"
+import { MODAL_REQUESTING } from "./constants"
 
 export const modalRequest = ({modalProps, modalType}) => {
 	return {

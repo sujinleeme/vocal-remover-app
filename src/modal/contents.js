@@ -1,3 +1,5 @@
+import { SIGN_IN_MODAL, SIGN_UP_MODAL} from "./constants"
+
 export const modalContents = ({state}) => {
 	const initState = {
 		title: "",
@@ -10,7 +12,7 @@ export const modalContents = ({state}) => {
 	}
 	
 	switch (state) {
-		case "SIGN_IN":
+		case SIGN_IN_MODAL:
 			return {
 				title: "Welcome back.",
 				subtitle: "Sign in to make your karaoke vocal music and record your singing.",
@@ -18,10 +20,10 @@ export const modalContents = ({state}) => {
 				google: "Sign in with Google",
 				bottom: "No account?",
 				button: "Create one.",
-				nextView: "SIGN_UP"
+				nextView: SIGN_UP_MODAL
 				
 			}
-		case "SIGN_UP":
+		case SIGN_UP_MODAL:
 			return {
 				title: "Join!",
 				subtitle: "Sign up to make your karaoke vocal music and record your singing.",
@@ -29,7 +31,7 @@ export const modalContents = ({state}) => {
 				google: "Sign up with Google",
 				bottom: "Already have an account?",
 				button: "Sign in.",
-				nextView: "SIGN_IN"
+				nextView: SIGN_IN_MODAL
 			}
 		default:
 			return initState

@@ -1,9 +1,10 @@
 import {
+	INIT_MODAL,
 	MODAL_REQUESTING, MODAL_SUCCESS, MODAL_FAIL
 } from "./constants"
 
 const initialState = {
-	modalType: null,
+	modalType: INIT_MODAL,
 	modalProps: false,
 	requesting: false,
 	successful: false,

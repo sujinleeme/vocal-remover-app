@@ -17,7 +17,7 @@ const AsyncNoMatch = importedComponent(() =>
 	LoadingComponent: Loading
 })
 
-const Signup = importedComponent(() => import(/* webpackChunkName:'Login' */ "./signup"), {
+const Signup = importedComponent(() => import(/* webpackChunkName:'Login' */ "./sign-up"), {
 	LoadingComponent: Loading
 })
 

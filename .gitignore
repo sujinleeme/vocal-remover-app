@@ -4,4 +4,4 @@ dist
 yarn-error.log
 .idea
 package-lock.json
-git rm -r --cached .
+src/social-config.json
