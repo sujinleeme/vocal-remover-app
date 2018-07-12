@@ -8,7 +8,7 @@ function* modalFlow(action) {
 	}
 	catch (error) {
 		yield put({ type: MODAL_FAIL, error })
-
+		
 	}
 	
 }

@@ -34,7 +34,7 @@ function* signupFlow(action) {
 	try {
 		const {response, channel} = action
 		// pulls "calls" to our signupApi with our email and password
-		// from our dispatched auth action, and will PAUSE
+		// from our dispatched signup action, and will PAUSE
 		// here until the API async function, is complete!
 	// 	const response = yield call(signupApi, email, password)
 	//
