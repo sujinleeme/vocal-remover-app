@@ -13,7 +13,6 @@ const initialState = {
 	errors: []
 }
 
-
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SIGNUP_REQUESTING:

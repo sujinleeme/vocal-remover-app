@@ -41,7 +41,8 @@ const Signup = (props) => {
 		<div className={ `${classes.container} ${classes.buttonGroup}` }>
 			<FacebookLogin
 				appId={ config.FACEBOOK_APP_ID }
-				autoLoad
+				cookie={true}
+				autoLoad={t}
 				fields="name,email,picture"
 				scope="public_profile"
 				callback={ (response) => signupRequest({response, channel: "facebook"})}
