@@ -35,7 +35,7 @@ const styles = {
 }
 
 const Header = (props) => {
-	const {classes, modalRequest, user, errors} = props
+	const {classes, modalRequest, user} = props
 	console.log(user)
 	return (
 		<AppBar position="static">
@@ -46,10 +46,10 @@ const Header = (props) => {
 					</Typography>
 				</div>
 				
-				{ user?
+				{ user ?
 					<UserDropdownMenu/> :
 					<Button className={ classes.button }
-					        onClick={ () => modalRequest({modalProps: true, modalType: SIGN_IN_MODAL}) }
+					        onClick={ () => modalRequest({modalOpen: true, modalType: SIGN_IN_MODAL}) }
 					>Sign in
 					</Button> }
 			</Toolbar>
@@ -61,8 +61,7 @@ Header.propTypes = {
 }
 
 const mapStateToProps = state => ({
-	user: state.client.user,
-	errors: state.signup.errors
+	user: state.client.user
 })
 
 export default withStyles(styles)(connect(mapStateToProps, {modalRequest})(Header))
