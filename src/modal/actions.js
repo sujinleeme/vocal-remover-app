@@ -1,9 +1,10 @@
 import { MODAL_REQUESTING } from "./constants"
 
-export const modalRequest = ({menuProps, menuType}) => {
+export const modalRequest = ({modalType, modalProps}) => {
 	return {
 		type: MODAL_REQUESTING,
-		menuProps,
-		menuType
+		modalType,
+		modalProps,
+		
 	}
 }

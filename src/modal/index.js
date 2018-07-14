@@ -95,11 +95,12 @@ const Signin = ({classes, modalRequest, view}) => {
 
 class SigninModal extends React.Component {
 	render() {
-		const {classes, _isOpen, modalRequest, modalView} = this.props
+		const {classes, open, modalRequest, modalType} = this.props
+		console.log(open)
 		return (
 			<div>
 				<Modal
-					open={ _isOpen }
+					open={ open }
 					disableAutoFocus={ true }
 				>
 					<div style={ getModalStyle() } className={ classes.paper }>
@@ -113,7 +114,7 @@ class SigninModal extends React.Component {
 						</div>
 						<Signin
 							classes={ classes }
-							view={ modalView }
+							view={ modalType }
 							modalRequest={ modalRequest }
 						/>
 					</div>
@@ -124,8 +125,8 @@ class SigninModal extends React.Component {
 }
 
 const mapStateToProps = state => ({
-	_isOpen: state.modal.modalProps,
-	modalView: state.modal.modalType
+	open: state.modal.modalProps,
+	modalType: state.modal.modalType
 })
 
 export default withStyles(styles)(connect(mapStateToProps, {modalRequest})(SigninModal))

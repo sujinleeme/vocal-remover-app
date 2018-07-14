@@ -34,8 +34,8 @@ const styles = {
 }
 
 const Header = (props) => {
-	const {classes, modalRequest, user} = props
-	console.log(props)
+	const {classes, modalRequest, user, errors} = props
+	
 	return (
 		<AppBar position="static">
 			<Toolbar className={ classes.root }>
@@ -47,34 +47,24 @@ const Header = (props) => {
 				
 				{ user ?
 					<UserDropdownMenu
-						name={ user.name }
-						src={ user.picture.data.url }
 					/>
 					:
-					<UserDropdownMenu
-						name={ "sujin" }
-						src={ "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=1865112950222953&height=50&width=50&ext=1531636574&hash=AeT2tsCtxPzcP9H7" }
-					/>
-					
+					<Button
+						onClick={ () => modalRequest({modalProps: true, modalType: SIGN_IN_MODAL}) }
+					>Sign in
+					</Button>
 				}
-			
-			
 			</Toolbar>
 		</AppBar>
 	)
 }
-
-// { /*<Button*/ }
-// { /*onClick={ () => modalRequest({modalProps: true, modalType: SIGN_IN_MODAL}) }*/ }
-// { /*color="inherit">Sign in*/ }
-// { /*</Button>*/ }
-
 Header.propTypes = {
 	classes: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-	user: state.auth.user
+	user: state.auth.user,
+	errors: state.auth.errors
 })
 
 export default withStyles(styles)(connect(mapStateToProps, {modalRequest})(Header))

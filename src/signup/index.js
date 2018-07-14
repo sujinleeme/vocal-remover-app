@@ -42,7 +42,7 @@ const Signup = (props) => {
 			<FacebookLogin
 				appId={ config.FACEBOOK_APP_ID }
 				cookie={true}
-				autoLoad={t}
+				autoLoad={true}
 				fields="name,email,picture"
 				scope="public_profile"
 				callback={ (response) => signupRequest({response, channel: "facebook"})}

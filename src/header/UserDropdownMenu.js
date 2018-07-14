@@ -1,7 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { connect } from "react-redux"
 import { withStyles } from "@material-ui/core/styles"
 import { IconButton, MenuItem, Menu, Avatar } from "@material-ui/core"
+import { loginRequest } from "../login/actions"
+import AccountCircle from "@material-ui/icons/AccountCircle"
 
 const styles = {
 	anchorOrigin: {
@@ -29,10 +32,16 @@ class UserDropdownMenu extends React.Component {
 		this.setState({anchorEl: null})
 	}
 	
+	handleLogout = () => {
+		this.props.loginRequest()
+	}
+	
 	render() {
-		const {classes, name = "", src = ""} = this.props
+		console.log(localStorage)
+		const {classes, loginRequest, user} = this.props
 		const {anchorEl} = this.state
 		const open = Boolean(anchorEl)
+		console.log(user)
 		
 		return (
 			<div className={ classes.root }>
@@ -42,7 +51,16 @@ class UserDropdownMenu extends React.Component {
 					onClick={ this.handleMenu }
 					color="inherit"
 				>
-					<Avatar alt={ name } src={ src }/>
+					<Avatar
+						alt={ user.name }
+						src={user.picture?
+							user.picture.data.url:
+							""
+						}
+					
+					
+					/>
+				
 				</IconButton>
 				<Menu
 					id="menu-appbar"
@@ -56,17 +74,22 @@ class UserDropdownMenu extends React.Component {
 						// remove hover
 						onMouseEnter={ (e) => e.target.style.backgroundColor = "transparent" }
 						onMouseLeave={ (e) => e.target.style.backgroundColor = "transparent" }
-						onClick={ this.handleClose }>{ name }</MenuItem>
+						onClick={ this.handleClose }>{ user.name }</MenuItem>
 					<MenuItem onClick={ this.handleClose }>My account</MenuItem>
-					<MenuItem onClick={ this.handleClose }>Log out</MenuItem>
+					<MenuItem onClick={ this.handleLogout }>Log out</MenuItem>
 				</Menu>
 			</div>
 		)
 	}
 }
 
+const mapStateToProps = state => ({
+	user: state.auth.user,
+	errors: state.auth.errors
+})
+
 UserDropdownMenu.propTypes = {
 	classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(UserDropdownMenu)
+export default withStyles(styles)(connect(mapStateToProps, {loginRequest})(UserDropdownMenu))

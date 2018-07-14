@@ -33,7 +33,8 @@ const config = {
 					chunks: "initial",
 					test: "vendor",
 					name: "vendor",
-					enforce: true
+					enforce: true,
+					chunks: 'all'
 				}
 			}
 		}
