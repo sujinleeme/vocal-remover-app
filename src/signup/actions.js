@@ -7,3 +7,12 @@ export const signupRequest = ({response, channel}) => {
 		channel
 	}
 }
+
+export const signupCancel = ({response}) => {
+	return {
+		type: SIGNUP_REQUESTING,
+		response
+	}
+}
+
+

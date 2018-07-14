@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import { withStyles } from "@material-ui/core/styles"
 import { IconButton, MenuItem, Menu, Avatar } from "@material-ui/core"
-import { loginRequest } from "../login/actions"
+import { signupRequest } from "../signup/actions"
 import AccountCircle from "@material-ui/icons/AccountCircle"
 
 const styles = {
@@ -33,15 +33,15 @@ class UserDropdownMenu extends React.Component {
 	}
 	
 	handleLogout = () => {
-		this.props.loginRequest()
+		this.props.signupRequest()
 	}
 	
 	render() {
-		console.log(localStorage)
+		// console.log(localStorage)
 		const {classes, loginRequest, user} = this.props
 		const {anchorEl} = this.state
 		const open = Boolean(anchorEl)
-		console.log(user)
+		// console.log(user)
 		
 		return (
 			<div className={ classes.root }>
@@ -84,12 +84,12 @@ class UserDropdownMenu extends React.Component {
 }
 
 const mapStateToProps = state => ({
-	user: state.auth.user,
-	errors: state.auth.errors
+	user: state.client.user,
+	errors: state.signup.errors
 })
 
 UserDropdownMenu.propTypes = {
 	classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(connect(mapStateToProps, {loginRequest})(UserDropdownMenu))
+export default withStyles(styles)(connect(mapStateToProps, {signupRequest})(UserDropdownMenu))

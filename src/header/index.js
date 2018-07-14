@@ -30,12 +30,13 @@ const styles = {
 	bigAvatar: {
 		width: 60,
 		height: 60
-	}
+	},
+	button: {}
 }
 
 const Header = (props) => {
 	const {classes, modalRequest, user, errors} = props
-	
+	console.log(user)
 	return (
 		<AppBar position="static">
 			<Toolbar className={ classes.root }>
@@ -45,15 +46,12 @@ const Header = (props) => {
 					</Typography>
 				</div>
 				
-				{ user ?
-					<UserDropdownMenu
-					/>
-					:
-					<Button
-						onClick={ () => modalRequest({modalProps: true, modalType: SIGN_IN_MODAL}) }
+				{ user?
+					<UserDropdownMenu/> :
+					<Button className={ classes.button }
+					        onClick={ () => modalRequest({modalProps: true, modalType: SIGN_IN_MODAL}) }
 					>Sign in
-					</Button>
-				}
+					</Button> }
 			</Toolbar>
 		</AppBar>
 	)
@@ -63,8 +61,8 @@ Header.propTypes = {
 }
 
 const mapStateToProps = state => ({
-	user: state.auth.user,
-	errors: state.auth.errors
+	user: state.client.user,
+	errors: state.signup.errors
 })
 
 export default withStyles(styles)(connect(mapStateToProps, {modalRequest})(Header))

@@ -2,11 +2,10 @@ import {
 	SIGNUP_REQUESTING,
 	SIGNUP_SUCCESS,
 	SIGNUP_ERROR,
-	LOGIN_SUCCESS
+	SIGNUP_CANCEL
 } from "./constants"
 
 const initialState = {
-	user: null,
 	requesting: false,
 	successful: false,
 	messages: [],
@@ -17,7 +16,6 @@ const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SIGNUP_REQUESTING:
 			return {
-				user: null,
 				requesting: true,
 				successful: false,
 				messages: [{body: "Signing up...", time: new Date()}],
@@ -26,17 +24,17 @@ const reducer = (state = initialState, action) => {
 		
 		// reset the state and add a body message of success!
 		// remember our successful returned payload will be:
-		// {"email": "of the new user", "id": "of the user"}
+		// Successful?  Reset the login state.
+		
 		case SIGNUP_SUCCESS:
 			return {
-				user: action.response,
-				errors: [],
-				messages: [{
-					body: `Successfully created account for ${action.response.email}`,
-					time: new Date()
-				}],
 				requesting: false,
 				successful: true,
+				errors: [],
+				messages: [{
+					body: `Successfully created account for ${action.response}`,
+					time: new Date()
+				}],
 			}
 		
 		// reset the state but with errors!
@@ -45,7 +43,6 @@ const reducer = (state = initialState, action) => {
 		// the base message for now
 		case SIGNUP_ERROR:
 			return {
-				user: null,
 				errors: state.errors.concat([{
 					body: action.error.toString(),
 					time: new Date()
@@ -54,6 +51,19 @@ const reducer = (state = initialState, action) => {
 				requesting: false,
 				successful: false
 			}
+		
+		case SIGNUP_CANCEL:
+			return {
+				errors: state.errors.concat([{
+					body: `Cancel signup: ${action.response.status}`,
+					time: new Date()
+				}]),
+				messages: [],
+				requesting: false,
+				successful: false
+			}
+			
+		
 		
 		default:
 			return state

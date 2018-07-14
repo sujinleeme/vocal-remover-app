@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import { Button } from "@material-ui/core"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { signupRequest } from "./actions"
+import { signupRequest, signupCancel } from "./actions"
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props"
 import config from "../social-config.json"
 
@@ -41,11 +41,12 @@ const Signup = (props) => {
 		<div className={ `${classes.container} ${classes.buttonGroup}` }>
 			<FacebookLogin
 				appId={ config.FACEBOOK_APP_ID }
-				cookie={true}
-				autoLoad={true}
+				cookie={ true }
+				autoLoad={ true }
 				fields="name,email,picture"
 				scope="public_profile"
-				callback={ (response) => signupRequest({response, channel: "facebook"})}
+				callback={ (response) => signupRequest({response, channel: "facebook"}) }
+				onFailure={ (response) => console.log("cancel response") }
 				render={ renderProps => (
 					<SocialSignInButton
 						channel="facebook"
@@ -67,5 +68,5 @@ const Signup = (props) => {
 	)
 }
 
-export default connect(null, {signupRequest})(Signup)
+export default connect(null, {signupRequest, signupCancel})(Signup)
 
