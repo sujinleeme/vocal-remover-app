@@ -1,4 +1,4 @@
-import { SIGNUP_REQUESTING } from "./constants"
+import { SIGNUP_REQUESTING, LOGOUT } from "./constants"
 
 export const signupRequest = ({response, channel}) => {
 	return {
@@ -8,9 +8,9 @@ export const signupRequest = ({response, channel}) => {
 	}
 }
 
-export const signupCancel = ({response}) => {
+export const logout = () => {
 	return {
-		type: SIGNUP_REQUESTING,
+		type: LOGOUT,
 		response
 	}
 }

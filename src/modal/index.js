@@ -8,7 +8,6 @@ import { modalRequest } from "./actions"
 import { modalContents } from "./contents"
 
 import Signup from "../signup"
-
 import { alignStyle } from "../common-styles"
 
 const styles = theme => ({
@@ -72,7 +71,7 @@ const Signin = ({classes, modalRequest, view}) => {
 			<div>
 				<Button disabled={ true }>{ body.bottom }</Button>
 				<Button className={ classes.button }
-				        onClick={ () => modalRequest({modalProps: true, modalType: body.nextView}) }
+				        onClick={ () => modalRequest({modalOpen: true, modalType: body.nextView}) }
 				>{ body.button }
 				</Button>
 			</div>
@@ -93,39 +92,36 @@ const Signin = ({classes, modalRequest, view}) => {
 // 	modalView: PropTypes.oneOf(["SIGN_IN", "SIGN_UP", null])
 // }
 
-class SigninModal extends React.Component {
-	render() {
-		const {classes, open, modalRequest, modalType} = this.props
-		console.log(open)
-		return (
-			<div>
-				<Modal
-					open={ open }
-					disableAutoFocus={ true }
-				>
-					<div style={ getModalStyle() } className={ classes.paper }>
-						<div className={ classes.closeButton }>
-							<IconButton className={ classes.button }
-							            aria-label="SING_IN"
-							            onClick={ () => modalRequest({modalProps: false}) }
-							>
-								<CloseIcon/>
-							</IconButton>
-						</div>
-						<Signin
-							classes={ classes }
-							view={ modalType }
-							modalRequest={ modalRequest }
-						/>
+const SigninModal = (props) => {
+	const {classes, modalOpen, modalRequest, modalType} = props
+	return (
+		<div>
+			<Modal
+				open={ modalOpen }
+				disableAutoFocus={ true }
+			>
+				<div style={ getModalStyle() } className={ classes.paper }>
+					<div className={ classes.closeButton }>
+						<IconButton className={ classes.button }
+						            aria-label="SING_IN"
+						            onClick={ () => modalRequest({modalOpen: false}) }
+						>
+							<CloseIcon/>
+						</IconButton>
 					</div>
-				</Modal>
-			</div>
-		)
-	}
+					<Signin
+						classes={ classes }
+						view={ modalType }
+						modalRequest={ modalRequest }
+					/>
+				</div>
+			</Modal>
+		</div>
+	)
 }
 
 const mapStateToProps = state => ({
-	open: state.modal.modalProps,
+	modalOpen: state.modal.modalOpen,
 	modalType: state.modal.modalType
 })
 

@@ -4,6 +4,8 @@ import { connect } from "react-redux"
 import { withStyles } from "@material-ui/core/styles"
 import { IconButton, MenuItem, Menu, Avatar } from "@material-ui/core"
 import { signupRequest } from "../signup/actions"
+
+import { unsetClient } from "../client/actions"
 import AccountCircle from "@material-ui/icons/AccountCircle"
 
 const styles = {
@@ -33,7 +35,7 @@ class UserDropdownMenu extends React.Component {
 	}
 	
 	handleLogout = () => {
-		this.props.signupRequest()
+		this.props.unsetClient()
 	}
 	
 	render() {
@@ -92,4 +94,4 @@ UserDropdownMenu.propTypes = {
 	classes: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(connect(mapStateToProps, {signupRequest})(UserDropdownMenu))
+export default withStyles(styles)(connect(mapStateToProps, {signupRequest, unsetClient})(UserDropdownMenu))

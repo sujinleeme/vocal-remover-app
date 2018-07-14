@@ -6,7 +6,7 @@ import Header from "./header"
 import Home from "./components/Home"
 import Loading from "./components/Loading"
 import SigninModal from "./modal"
-
+import SnackBar from "./snackbar"
 const AsyncNoMatch = importedComponent(() =>
 	import(/* webpackChunkName:'NoMatch' */ "./components/NoMatch"), {
 	LoadingComponent: Loading
@@ -18,6 +18,7 @@ const App = () => {
 		<div>
 			<Header/>
 			<SigninModal/>
+			<SnackBar />
 			<Switch>
 				<Route exact path="/" component={ Home }/>
 				<Route component={ AsyncNoMatch }/>

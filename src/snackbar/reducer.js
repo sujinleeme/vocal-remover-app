@@ -1,8 +1,8 @@
-import { MODAL_REQUESTING, MODAL_SUCCESS, MODAL_FAIL } from "./constants"
+import { SNACKBAR_REQUESTING, SNACKBAR_SUCCESS, SNACKBAR_FAIL } from "./constants"
 
 const initialState = {
-	modalType: null,
-	modalOpen: false,
+	snackbarOpen: false,
+	snackbarType: null,
 	requesting: false,
 	successful: false,
 	errors: []
@@ -11,25 +11,25 @@ const initialState = {
 const reducer = (state = initialState, action) => {
 	
 	switch (action.type) {
-		case MODAL_REQUESTING:
+		case SNACKBAR_REQUESTING:
 			return {
 				...state,
 				requesting: true
 			}
 		
-		case MODAL_SUCCESS:
+		case SNACKBAR_SUCCESS:
 			return {
 				...state,
-				modalType: action.modalType,
-				modalOpen: action.modalOpen,
+				snackbarOpen: action.snackbarOpen,
+				snackbarType: action.snackbarType,
 				requesting: false,
 				successful: true
 			}
 		
-		case MODAL_FAIL:
+		case SNACKBAR_FAIL:
 			return {
-				modalType: null,
-				modalOpen: null,
+				snackbarOpen: null,
+				snackbarType: null,
 				errors: state.errors.concat([{
 					body: action.error.toString(),
 					time: new Date()
