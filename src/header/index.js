@@ -1,16 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
-import { Link } from "react-router-dom"
 import { withStyles } from "@material-ui/core/styles"
 import { AppBar, Toolbar, Typography, Button } from "@material-ui/core"
 import { modalRequest } from "../modal/actions"
 import { SIGN_IN_MODAL } from "../modal/constants"
-import Avatar from "@material-ui/core/Avatar"
-import IconButton from "@material-ui/core/IconButton"
-import MenuItem from "@material-ui/core/MenuItem"
-import Menu from "@material-ui/core/Menu"
 import UserDropdownMenu from "./UserDropdownMenu"
+import { forwardTo } from "../lib"
+import { Link } from "react-router-dom"
 
 const styles = {
 	root: {
@@ -34,18 +31,15 @@ const styles = {
 	button: {}
 }
 
-const Header = (props) => {
-	const {classes, modalRequest, user} = props
-	console.log(user)
+const Header = ({classes, modalRequest, user}) => {
 	return (
 		<AppBar position="static">
 			<Toolbar className={ classes.root }>
-				<div>
+				<Link to="/">
 					<Typography variant="title" color="inherit">
 						Vocal Remover
 					</Typography>
-				</div>
-				
+				</Link>
 				{ user ?
 					<UserDropdownMenu/> :
 					<Button className={ classes.button }

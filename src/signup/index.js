@@ -43,7 +43,7 @@ const Signup = (props) => {
 				appId={ config.FACEBOOK_APP_ID }
 				cookie={ true }
 				autoLoad={ true }
-				fields="name,email,picture"
+				fields="name,email,picture.width(800).height(800)"
 				scope="public_profile"
 				callback={ (response) => signupRequest({response, channel: "facebook"}) }
 				onFailure={ (response) => console.log("cancel response") }

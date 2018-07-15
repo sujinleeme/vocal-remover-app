@@ -8,7 +8,7 @@ export const snackbarContents = ({type}) => {
 	switch (type) {
 		case LOG_OUT:
 			return {
-				text: "LOG OUT"
+				text: "Log out successfully."
 			}
 			
 		default:

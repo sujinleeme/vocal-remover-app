@@ -1,12 +1,12 @@
 import { call, take, put, fork, cancel } from "redux-saga/effects"
 import { modalRequest } from "../modal/actions"
-// import { handleApiErrors } from "../lib/api-errors"
+import { forwardTo } from "../lib"
+
 import {
 	SIGNUP_REQUESTING,
 	SIGNUP_SUCCESS,
 	SIGNUP_ERROR
 } from "./constants"
-
 
 import {
 	setClient,
@@ -34,8 +34,8 @@ function* logout() {
 	// remove our token
 	// localStorage.removeItem('token')
 	
-	// redirect to the /login screen
-	// browserHistory.push('/login')
+	// redirect to the root
+	yield call(forwardTo, '/')
 }
 
 function* signupFlow(response, channel) {
