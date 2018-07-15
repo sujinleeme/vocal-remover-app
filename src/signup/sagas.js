@@ -18,7 +18,8 @@ import {
 } from "../snackbar/actions"
 
 import {
-	LOG_OUT
+	LOG_OUT,
+	LOG_IN
 } from "../snackbar/constants"
 
 import {
@@ -47,6 +48,7 @@ function* signupFlow(response, channel) {
 		
 		// close modal window
 		yield put(modalRequest({modalOpen: false}))
+		yield put(snackbarRequest({snackbarType: LOG_IN, snackbarOpen: true}))
 		
 	} catch (error) {
 		yield put({type: SIGNUP_ERROR, error})

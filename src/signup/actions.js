@@ -7,12 +7,3 @@ export const signupRequest = ({response, channel}) => {
 		channel
 	}
 }
-
-export const logout = () => {
-	return {
-		type: LOGOUT,
-		response
-	}
-}
-
-
