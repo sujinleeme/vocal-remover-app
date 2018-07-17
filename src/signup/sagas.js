@@ -17,6 +17,12 @@ import {
 	snackbarRequest
 } from "../snackbar/actions"
 
+
+import {
+	SNACKBAR_REQUESTING,
+	SNACKBAR_SUCCESS
+} from "../snackbar/constants"
+
 import {
 	LOG_OUT,
 	LOG_IN
@@ -30,12 +36,10 @@ function* logout() {
 	// dispatches the CLIENT_UNSET action
 	yield put(unsetClient())
 	
-	yield put(snackbarRequest({snackbarType: LOG_OUT, snackbarOpen: true}))
-	
 	// remove our token
 	// localStorage.removeItem('token')
+	yield put(snackbarRequest({snackbarType: LOG_OUT, snackbarOpen: true}))
 	
-	// redirect to the root
 	yield call(forwardTo, '/')
 }
 
@@ -48,6 +52,8 @@ function* signupFlow(response, channel) {
 		
 		// close modal window
 		yield put(modalRequest({modalOpen: false}))
+		
+		// show snackbar notification
 		yield put(snackbarRequest({snackbarType: LOG_IN, snackbarOpen: true}))
 		
 	} catch (error) {
@@ -61,8 +67,11 @@ function* signupWatcher() {
 		const task = yield fork(signupFlow, response, channel)
 		const action = yield take([CLIENT_UNSET, SIGNUP_ERROR])
 		
-		if (action.type === CLIENT_UNSET) yield cancel(task)
-		yield call(logout)
+		if (action.type === CLIENT_UNSET) {
+			yield cancel(task)
+			yield call(logout)
+			
+		}
 	}
 }
 

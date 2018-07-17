@@ -1,4 +1,4 @@
-import { LOG_IN, LOG_OUT } from "./constants"
+import { LOG_IN, LOG_OUT, INIT } from "./constants"
 
 export const snackbarContents = ({type}) => {
 	const initState = {
@@ -6,6 +6,11 @@ export const snackbarContents = ({type}) => {
 	}
 	
 	switch (type) {
+		case INIT: {
+			return {
+				text: ""
+			}
+		}
 		case LOG_IN:
 			return {
 				text: "Welcome! :D"

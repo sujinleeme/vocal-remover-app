@@ -1,9 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
-import {Snackbar, IconButton, withStyles} from "@material-ui/core"
+import { Snackbar, IconButton, withStyles } from "@material-ui/core"
 import CloseIcon from "@material-ui/icons/Close"
-import {LOG_OUT} from "./constants"
+import { INIT } from "./constants"
 import { snackbarRequest } from "../snackbar/actions"
 import { snackbarContents } from "./contents"
 // yield put(snackbarRequest({snackbarType: LOG_OUT, snackbarOpen: false}))
@@ -21,7 +21,7 @@ class NotificationBar extends React.Component {
 		if (reason === "clickaway") {
 			return
 		}
-		this.props.snackbarRequest({snackbarType: LOG_OUT, snackbarOpen: false})
+		this.props.snackbarRequest({snackbarType: INIT, snackbarOpen: false})
 	}
 	
 	render() {
@@ -38,7 +38,7 @@ class NotificationBar extends React.Component {
 				ContentProps={ {
 					"aria-describedby": "message-id"
 				} }
-				message={ <span id="message-id">{messageText.text}</span> }
+				message={ <span id="message-id">{ messageText.text }</span> }
 				action={ [
 					<IconButton
 						key="close"
