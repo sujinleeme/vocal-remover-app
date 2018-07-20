@@ -17,12 +17,6 @@ import {
 	snackbarRequest
 } from "../snackbar/actions"
 
-
-import {
-	SNACKBAR_REQUESTING,
-	SNACKBAR_SUCCESS
-} from "../snackbar/constants"
-
 import {
 	LOG_OUT,
 	LOG_IN
@@ -37,7 +31,6 @@ function* logout() {
 	yield put(unsetClient())
 	
 	// remove our token
-	// localStorage.removeItem('token')
 	yield put(snackbarRequest({snackbarType: LOG_OUT, snackbarOpen: true}))
 	
 	yield call(forwardTo, '/')
@@ -45,7 +38,6 @@ function* logout() {
 
 function* signupFlow(response, channel) {
 	try {
-		
 		yield put(setClient({response, channel}))
 		
 		yield put({type: SIGNUP_SUCCESS})
@@ -70,7 +62,6 @@ function* signupWatcher() {
 		if (action.type === CLIENT_UNSET) {
 			yield cancel(task)
 			yield call(logout)
-			
 		}
 	}
 }
