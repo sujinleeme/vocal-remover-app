@@ -9,7 +9,7 @@ export default combineReducers({
 	routing: routerReducer,
 	client,
 	modal,
-	signup,
-	snackbar
+  signup,
+	snackbar,
 })
 
