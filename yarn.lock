@@ -5840,6 +5840,10 @@ redux-logger@^3.0.6:
   dependencies:
     deep-diff "^0.3.5"
 
+redux-persist@^5.10.0:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-5.10.0.tgz#5d8d802c5571e55924efc1c3a9b23575283be62b"
+
 redux-saga@^1.0.0-beta.0:
   version "1.0.0-beta.1"
   resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-1.0.0-beta.1.tgz#2a5d46c85cd8d67238062ac5a2b3f3e757a6c9df"
