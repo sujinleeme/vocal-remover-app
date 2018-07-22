@@ -20,7 +20,7 @@ const AsyncNoMatch = importedComponent(() =>
 })
 
 const Upload = importedComponent(() =>
-  import(/* webpackChunkName:'NoMatch' */ "./pages/Upload"), {
+  import(/* webpackChunkName:'NoMatch' */ "./pages/UploadPage"), {
   LoadingComponent: Loading
 })
 
