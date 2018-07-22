@@ -19,7 +19,7 @@ const Layout = ({classes, children}) => {
 					container
 					alignItems="center"
 					justify="center"
-					direction="row"
+					direction="column"
 					className={ classes.root }
 				>
 					{ children }
