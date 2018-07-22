@@ -1,4 +1,5 @@
 const commonPaths = require("./common-paths")
+const webpack = require("webpack")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 const config = {
@@ -43,7 +44,16 @@ const config = {
 			template: `public/index.html`,
 			favicon: `public/favicon.ico`
 		}),
+    new webpack.ProvidePlugin({
+      WaveSurfer: 'wavesurfer.js'
+    })
   ],
+  resolve: {
+    alias: {
+      wavesurfer: require.resolve('wavesurfer.js')
+    }
+  },
+  
 }
 
 module.exports = config
