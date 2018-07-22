@@ -19,6 +19,10 @@ const AsyncNoMatch = importedComponent(() =>
 	LoadingComponent: Loading
 })
 
+const Upload = importedComponent(() =>
+  import(/* webpackChunkName:'NoMatch' */ "./pages/Upload"), {
+  LoadingComponent: Loading
+})
 
 const App = () => {
 	return (
@@ -29,7 +33,7 @@ const App = () => {
 			<Switch>
 				<Route exact path="/" component={ Home }/>
 				<Route exact path="/me" component={ MyPage }/>
-				<Route exact path="/upload" component={ MyPage }/>
+				<Route exact path="/upload" component={ Upload }/>
 				<Route component={ AsyncNoMatch }/>
 			</Switch>
 		</div>

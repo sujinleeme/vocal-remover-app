@@ -23,10 +23,6 @@ const styles = theme => ({
   }
 })
 
-
-
-
-
 const UserProfile = ({classes, user}) => {
   
   return (
