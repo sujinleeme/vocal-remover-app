@@ -1,5 +1,4 @@
 const commonPaths = require("./common-paths")
-const webpack = require("webpack")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 const config = {
@@ -43,8 +42,8 @@ const config = {
 		new HtmlWebpackPlugin({
 			template: `public/index.html`,
 			favicon: `public/favicon.ico`
-		})
-	]
+		}),
+  ],
 }
 
 module.exports = config
