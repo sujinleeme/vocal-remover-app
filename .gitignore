@@ -4,4 +4,3 @@ dist
 yarn-error.log
 .idea
 package-lock.json
-src/social-config.json
