@@ -57,7 +57,7 @@ class AudioFileDropZone extends React.Component {
                         align="center"
                         gutterBottom>
               AIFF, WAVE(WAV),
-              FLAC, ALAC, OGG, MP2, MP3, AAC, AMR, and WMA (Max 5GB)
+              FLAC, ALAC, OGG, MP2, MP3, AAC, AMR, and WMA (Max 3MB)
             </Typography>
             <aside>
               <ul>

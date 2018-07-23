@@ -1,12 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import classNames from "classnames"
-import { withStyles } from "@material-ui/core/styles"
-import { connect } from "react-redux"
-import Avatar from "@material-ui/core/Avatar"
-import AccountCircle from "@material-ui/icons/AccountCircle"
-import Typography from "@material-ui/core/Typography"
-import Paper from "@material-ui/core/Paper"
+import { withStyles, Avatar, Typography, Paper } from "@material-ui/core"
 
 const styles = theme => ({
   row: {
@@ -24,7 +19,6 @@ const styles = theme => ({
 })
 
 const UserProfile = ({classes, user}) => {
-  
   return (
     <Paper className={ classes.row }>
       { user &&

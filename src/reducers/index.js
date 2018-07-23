@@ -4,6 +4,7 @@ import signup from "../signup/reducer"
 import modal from "../modal/reducer"
 import client from "../client/reducer"
 import snackbar from "../snackbar/reducer"
+import player from "../player/reducer"
 
 export default combineReducers({
 	routing: routerReducer,
@@ -11,5 +12,6 @@ export default combineReducers({
 	modal,
   signup,
 	snackbar,
+	player
 })
 

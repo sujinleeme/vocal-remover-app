@@ -8,36 +8,35 @@ import Loading from "./components/Loading"
 import SigninModal from "./modal"
 import SnackBar from "./snackbar"
 
-
 const MyPage = importedComponent(() =>
-	import(/* webpackChunkName:'NoMatch' */ "./pages/MyPage"), {
-	LoadingComponent: Loading
+  import(/* webpackChunkName:'MyPage' */ "./pages/MyPage"), {
+  LoadingComponent: Loading
 })
 
 const AsyncNoMatch = importedComponent(() =>
-	import(/* webpackChunkName:'NoMatch' */ "./components/NoMatch"), {
-	LoadingComponent: Loading
+  import(/* webpackChunkName:'NoMatch' */ "./components/NoMatch"), {
+  LoadingComponent: Loading
 })
 
 const Upload = importedComponent(() =>
-  import(/* webpackChunkName:'NoMatch' */ "./pages/UploadPage"), {
+  import(/* webpackChunkName:'UploadPage' */ "./pages/UploadPage"), {
   LoadingComponent: Loading
 })
 
 const App = () => {
-	return (
-		<div>
-			<Header/>
-			<SigninModal/>
-			<SnackBar />
-			<Switch>
-				<Route exact path="/" component={ Home }/>
-				<Route exact path="/me" component={ MyPage }/>
-				<Route exact path="/upload" component={ Upload }/>
-				<Route component={ AsyncNoMatch }/>
-			</Switch>
-		</div>
-	)
+  return (
+    <div>
+      <Header/>
+      <SigninModal/>
+      <SnackBar/>
+      <Switch>
+        <Route exact path="/" component={ Home }/>
+        <Route exact path="/me" component={ MyPage }/>
+        <Route exact path="/upload" component={ Upload }/>
+        <Route component={ AsyncNoMatch }/>
+      </Switch>
+    </div>
+  )
 }
 
 export default App

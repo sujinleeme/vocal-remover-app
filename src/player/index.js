@@ -16,7 +16,6 @@ const styles = theme => ({
     paddingLeft: theme.spacing.unit,
     paddingRight: theme.spacing.unit,
     width: "100%"
-    
   },
   playController: {
     alignItems: "center",
@@ -93,10 +92,10 @@ class AudioPlayer extends React.Component {
           <div className={ classes.info }>
             <div className={ classes.title }>
               <Typography variant="title" gutterBottom>
-                Title
+                Honne
               </Typography>
               <Typography variant="subheading" gutterBottom>
-                Title
+                Day 1
               </Typography>
             </div>
           </div>
@@ -113,7 +112,7 @@ class AudioPlayer extends React.Component {
                 cursorColor: "gray",
                 height: 100,
                 fillParent: true,
-                progressColor: "blue",
+                progressColor: "#3f51b5",
                 waveColor: "gray"
               } }
             >
