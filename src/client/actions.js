@@ -1,18 +1,15 @@
-import { CLIENT_SET, CLIENT_UNSET } from './constants'
+import * as actionTypes from "./constants"
 
-// there's literally no reason these are in a different
-// format from the other component actions other than
-// that I just lost track
-export function setClient ({response}) {
-	return {
-		type: CLIENT_SET,
-		response
-	}
+export function setClient({response}) {
+  return {
+    type: actionTypes.CLIENT_SET,
+    response
+  }
 }
 
-export function unsetClient () {
-	return {
-		type: CLIENT_UNSET,
-		
-	}
+export function unsetClient() {
+  return {
+    type: actionTypes.CLIENT_UNSET
+    
+  }
 }

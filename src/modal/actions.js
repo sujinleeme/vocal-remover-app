@@ -5,6 +5,5 @@ export const modalRequest = ({modalType, modalOpen}) => {
 		type: MODAL_REQUESTING,
 		modalType,
 		modalOpen,
-		
 	}
 }

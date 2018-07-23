@@ -4,6 +4,7 @@ import UserProfile from "./MyPage/UserProfile"
 import { connect } from "react-redux"
 import { modalRequest } from "../modal/actions"
 import { SIGN_IN_MODAL } from "../modal/constants"
+import { withStyles, Paper } from "@material-ui/core"
 
 class MyPage extends React.Component {
 	componentDidMount () {
