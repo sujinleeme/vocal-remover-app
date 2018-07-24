@@ -32,14 +32,12 @@ function* logout() {
 	
 	// remove our token
 	yield put(snackbarRequest({snackbarType: LOG_OUT, snackbarOpen: true}))
-	
 	yield call(forwardTo, '/')
 }
 
 function* signupFlow(response, channel) {
 	try {
 		yield put(setClient({response, channel}))
-		
 		yield put({type: SIGNUP_SUCCESS})
 		
 		// close modal window

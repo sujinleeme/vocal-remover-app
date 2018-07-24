@@ -10,6 +10,5 @@ export function setClient({response}) {
 export function unsetClient() {
   return {
     type: actionTypes.CLIENT_UNSET
-    
   }
 }

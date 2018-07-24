@@ -36,7 +36,6 @@ const SocialSignInButton = ({buttonCSSClass, iconCSSClass, textButton, onClick, 
 const Signup = (props) => {
 	
 	const {classes, signupRequest, textButton} = props
-	
 	return (
 		<div className={ `${classes.container} ${classes.buttonGroup}` }>
 			<FacebookLogin
