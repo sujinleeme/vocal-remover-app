@@ -1,4 +1,4 @@
-import { LOG_IN, LOG_OUT, INIT } from "./constants"
+import { LOG_IN, LOG_OUT, INIT, PREVIEW_SUCCESS } from "./constants"
 
 export const snackbarContents = ({type}) => {
 	const initState = {
@@ -20,6 +20,12 @@ export const snackbarContents = ({type}) => {
 				text: "Log out successfully."
 			}
 			
+		case PREVIEW_SUCCESS:
+			return {
+				text: "Ready to make your karaoke music? 🎵"
+			}
+		
+		
 		default:
 			return initState
 	}
