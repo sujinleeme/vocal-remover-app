@@ -1,7 +1,8 @@
 import React from "react"
-import Dropzone from "react-dropzone"
-import { Paper, withStyles, Typography, Button, Icon } from "@material-ui/core"
 import { connect } from "react-redux"
+import Dropzone from "react-dropzone"
+import { withStyles, Typography, Icon } from "@material-ui/core"
+import { uploadRequest } from "../upload/actions"
 
 const styles = theme => ({
   root: {
@@ -10,7 +11,6 @@ const styles = theme => ({
     justifyContent: "center",
     flexDirection: "column",
     width: "100%",
-    padding: theme.spacing.unit * 2,
     cursor: "pointer"
   },
   contents: {
@@ -24,53 +24,62 @@ const styles = theme => ({
     fontSize: "80px",
     color: "#ccc",
     margin: theme.spacing.unit * 4
-  }
+  },
+  activeStyle: {
+    background: "gray"
+  },
+  iconBox: {
+    border: "2px solid #ccc",
+    borderStyle: "dashed",
+    width: "100%",
+    borderRadius: "10px",
+    justifyContent: "center",
+    display: "flex",
+    alignItems: "center",
+    margin: theme.spacing.unit * 2
+    
+  },
+  acceptStyle: {}
 })
 
-class AudioFileDropZone extends React.Component {
-  constructor() {
-    super()
-    this.state = {files: []}
-  }
+const AudioFileDropZone = ({classes, uploadRequest, upload}) => {
   
-  onDrop(files) {
-    this.setState({
-      files
-    })
-  }
-  
-  render() {
-    const {classes} = this.props
-    return (
-      <section className={ classes.root }>
-        <Dropzone accept="audio/*"
-                  style={ {
-                    width: "100%"
-                  } }
-                  onDrop={ this.onDrop.bind(this) }>
-          <div className={ classes.contents }>
-            <Typography variant="title"
-                        align="center"
-                        gutterBottom>Drag & drop an audio file to import, or browse.</Typography>
-            <Icon className={ classes.icon }>library_music</Icon>
-            <Typography variant="body1"
-                        align="center"
-                        gutterBottom>
-              AIFF, WAVE(WAV),
-              FLAC, ALAC, OGG, MP2, MP3, AAC, AMR, and WMA (Max 3MB)
-            </Typography>
-            <aside>
-              <ul>
-                {
-                  this.state.files.map(f => <li key={ f.name }>{ f.name } - { f.size } bytes</li>)
-                }
-              </ul>
-            </aside>
-          </div>
-        </Dropzone>
-      </section>
-    )
-  }
+  console.log(upload)
+  return (
+    <Dropzone
+      className={ classes.root }
+      accept="audio/*"
+      acceptStyle={ {
+        background: "#eee"
+      } }
+      onDrop={ (file) => uploadRequest({file}) }>
+      <div className={ classes.contents }>
+        <Typography variant="title"
+                    align="center"
+                    gutterBottom>Drag & drop an audio file to import, or browse.</Typography>
+        <div className={ classes.iconBox }>
+          <Icon className={ classes.icon }>library_music</Icon>
+        </div>
+        <Typography variant="body1"
+                    align="center"
+                    gutterBottom>
+          AIFF, WAVE(WAV),
+          FLAC, ALAC, OGG, MP2, MP3, AAC, AMR, and WMA (Max 3MB)
+        </Typography>
+        <aside>
+          <ul>
+            { /*{*/ }
+            { /*this.state.files.map(f => <li key={ f.name }>{ f.name } - { f.size } bytes</li>)*/ }
+            { /*}*/ }
+          </ul>
+        </aside>
+      </div>
+    </Dropzone>
+  )
 }
 
-export default withStyles(styles)(connect(null, {})(AudioFileDropZone))
+const mapStateToProps = state => ({
+  upload: state.upload
+})
+
+export default withStyles(styles)(connect(mapStateToProps, {uploadRequest})(AudioFileDropZone))
