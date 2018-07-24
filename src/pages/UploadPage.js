@@ -1,7 +1,6 @@
 import React from "react"
 import Layout from "../components/Layout"
 import AudioFileDropZone from "../components/AudioFileDropZone"
-import SuccessAudioFileDropZone from "../components/SuccessAudioFileDropZone"
 import AudioPlayer from "../player"
 import { connect } from "react-redux"
 import { modalRequest } from "../modal/actions"
@@ -20,13 +19,10 @@ const styles = theme => ({
   button: {
     margin: theme.spacing.unit
   }
-  
 })
 
 class UploadPage extends React.Component {
   componentDidMount() {
-    
-    //this.props.uploadReset
     const {user} = this.props
     if (!user) {
       return this.props.modalRequest({modalOpen: true, modalType: SIGN_IN_MODAL})
@@ -42,21 +38,14 @@ class UploadPage extends React.Component {
         <div>
           <Layout>
             <Paper className={ classes.root }>
-              
-              
-              
-                <AudioFileDropZone/>
-                
+              <AudioFileDropZone/>
             </Paper>
-          
           </Layout>
           { file ?
-            
             <Layout>
               <AudioPlayer/>
             </Layout>
             : null }
-          
           <Layout>
             { file ?
               <Button variant="contained" color="primary" className={ classes.button }>
