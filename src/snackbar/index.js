@@ -33,7 +33,7 @@ class NotificationBar extends React.Component {
 			<Snackbar
 				anchorOrigin={ {vertical: "bottom", horizontal: "right"} }
 				open={ snackbarOpen }
-				autoHideDuration={ 2000 }
+				autoHideDuration={ 3000 }
 				onClose={ this.handleClose }
 				ContentProps={ {
 					"aria-describedby": "message-id"
