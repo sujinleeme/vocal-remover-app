@@ -1,4 +1,4 @@
-import { SIGNUP_REQUESTING, LOGOUT } from "./constants"
+import { SIGNUP_REQUESTING } from "./constants"
 
 export const signupRequest = ({response, channel}) => {
 	return {
