@@ -5,13 +5,14 @@ import modal from "../modal/reducer"
 import client from "../client/reducer"
 import snackbar from "../snackbar/reducer"
 import player from "../player/reducer"
-
+import upload from "../upload/reducer"
 export default combineReducers({
 	routing: routerReducer,
 	client,
 	modal,
   signup,
 	snackbar,
-	player
+	player,
+  upload
 })
 
