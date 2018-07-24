@@ -36,7 +36,9 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit
   },
   button: {},
-  title: {},
+  title: {
+    fontSize: "1rem"
+  },
   input: {
     margin: theme.spacing.unit
   },
@@ -68,20 +70,29 @@ class AudioPlayer extends React.Component {
   }
   
   render() {
-    const {classes, isPlaying, setIsPlaying} = this.props
+    const {classes, isPlaying, file } = this.props
     const bg = "https://99designs-blog.imgix.net/blog/wp-content/uploads/2017/12/attachment_68585523.jpg?auto=format&q=60&fit=max&w=930"
+
+    const cacheAudioFile = {
+      title: file? file[0].name: "",
+      url: file? file[0].preview: "",
+      size: file? file[0].size: "",
+      type: file? file[0].size: ""
+    }
+    
+    console.log(cacheAudioFile.url)
     return (
       <Paper className={ classes.root }>
         <div className={ classes.playController }
              style={ {
-               backgroundImage: "url(" + bg + ")"
+               backgroundImage: `url(${bg})`
              } }
         >
           <Button
             variant="fab"
             aria-label="PlayContorl"
             color="primary"
-            onClick={ () => setIsPlaying(!isPlaying) }
+            onClick={ () => this.props.setIsPlaying(!isPlaying) }
           >
             { isPlaying ?
               <Icon className={ classes.button }>pause</Icon> :
@@ -90,18 +101,18 @@ class AudioPlayer extends React.Component {
         </div>
         <div className={ classes.player }>
           <div className={ classes.info }>
-            <div className={ classes.title }>
-              <Typography variant="title" gutterBottom>
-                Honne
+            <div>
+              <Typography variant="body2" className={ classes.title }>
+                {cacheAudioFile.title}
               </Typography>
-              <Typography variant="subheading" gutterBottom>
-                Day 1
+              <Typography variant="body1" gutterBottom>
+                Artist
               </Typography>
             </div>
           </div>
           <div className={ classes.waveform }>
             <WaveSurfer
-              audioFile={ "https://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3" }
+              audioFile={cacheAudioFile.url}
               pos={ this.state.pos }
               onPosChange={ this.handlePosChange }
               playing={ isPlaying }
@@ -125,7 +136,8 @@ class AudioPlayer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  isPlaying: state.player.isPlaying
+  isPlaying: state.player.isPlaying,
+  file: state.upload.file
 })
 
 export default withStyles(styles)(connect(mapStateToProps, {setIsPlaying})(AudioPlayer))
