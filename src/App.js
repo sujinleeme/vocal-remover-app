@@ -3,6 +3,7 @@ import { Switch, Route } from "react-router-dom"
 import importedComponent from "react-imported-component"
 
 import Header from "./header"
+import Footer from "./footer"
 import Home from "./pages/Home"
 import Loading from "./components/Loading"
 import SigninModal from "./modal"
@@ -25,7 +26,9 @@ const Upload = importedComponent(() =>
 
 const App = () => {
   return (
-    <div>
+    <div style={{
+      height: "100vh"
+    }}>
       <Header/>
       <SigninModal/>
       <SnackBar/>
@@ -35,6 +38,7 @@ const App = () => {
         <Route exact path="/upload" component={ Upload }/>
         <Route component={ AsyncNoMatch }/>
       </Switch>
+      <Footer/>
     </div>
   )
 }
