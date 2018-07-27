@@ -5,7 +5,7 @@ import AudioPlayer from "../player"
 import { connect } from "react-redux"
 import { modalRequest } from "../modal/actions"
 import { SIGN_IN_MODAL } from "../modal/constants"
-import { withStyles, Paper, Button } from "@material-ui/core"
+import { withStyles, Paper, Button, Grow } from "@material-ui/core"
 import { uploadReset } from "../upload/actions"
 
 const styles = theme => ({
@@ -30,6 +30,10 @@ class UploadPage extends React.Component {
     return this.props.uploadReset()
   }
   
+  componentWillUnmount() {
+    this.props.uploadReset()
+  }
+  
   render() {
     const {user, classes, file} = this.props
     return (
@@ -43,7 +47,12 @@ class UploadPage extends React.Component {
           </Layout>
           { file ?
             <Layout>
-              <AudioPlayer/>
+              <Grow
+                style={{ transformOrigin: '0 0 0' }}
+                timeout={2000}
+              >
+                <AudioPlayer/>
+              </Grow>
             </Layout>
             : null }
           <Layout>

@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import Dropzone from "react-dropzone"
 import { withStyles, Typography, Icon } from "@material-ui/core"
-import { uploadRequest } from "../upload/actions"
+import { uploadRequest, uploadReject } from "../upload/actions"
 
 const styles = theme => ({
   root: {
@@ -42,7 +42,7 @@ const styles = theme => ({
   acceptStyle: {}
 })
 
-const AudioFileDropZone = ({classes, uploadRequest, upload}) => {
+const AudioFileDropZone = ({classes, uploadRequest, uploadReject, upload}) => {
   
   console.log(upload)
   return (
@@ -52,7 +52,11 @@ const AudioFileDropZone = ({classes, uploadRequest, upload}) => {
       acceptStyle={ {
         background: "#eee"
       } }
-      onDrop={ (file) => uploadRequest({file}) }>
+      rejectStyle={ {
+        background: "red"
+      }}
+      onDropRejected={ () => uploadReject() }
+      onDropAccepted={ (file) => uploadRequest({file}) }>
       <div className={ classes.contents }>
         <Typography variant="title"
                     align="center"
@@ -82,4 +86,4 @@ const mapStateToProps = state => ({
   upload: state.upload
 })
 
-export default withStyles(styles)(connect(mapStateToProps, {uploadRequest})(AudioFileDropZone))
+export default withStyles(styles)(connect(mapStateToProps, {uploadRequest, uploadReject})(AudioFileDropZone))

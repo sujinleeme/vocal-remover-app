@@ -1,4 +1,4 @@
-import { LOG_IN, LOG_OUT, INIT, PREVIEW_SUCCESS } from "./constants"
+import { LOG_IN, LOG_OUT, INIT, PREVIEW_SUCCESS, FILE_NOT_ACCEPTED } from "./constants"
 
 export const snackbarContents = ({type}) => {
 	const initState = {
@@ -24,6 +24,11 @@ export const snackbarContents = ({type}) => {
 			return {
 				text: "Ready to make your karaoke music? 🎵"
 			}
+			
+    case FILE_NOT_ACCEPTED:
+      return {
+        text: "This file does not seem to be an audio file. 😢"
+      }
 		
 		
 		default:

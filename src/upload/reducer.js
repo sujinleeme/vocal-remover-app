@@ -1,4 +1,7 @@
-import { UPLOAD_RESET, UPLOAD_REQUEST, UPLOAD_SUCCESS, UPLOAD_ERROR, UPLOAD_PROGRESS } from "./constants"
+import {
+  UPLOAD_RESET, UPLOAD_REQUEST, UPLOAD_SUCCESS, UPLOAD_ERROR,
+  UPLOAD_PROGRESS, UPLOAD_REJECT
+} from "./constants"
 
 const initialState = {
   file: null,
@@ -65,6 +68,7 @@ const reducer = (state = initialState, action) => {
         errors: [],
         messages: []
       }
+    
     default:
       return state
   }

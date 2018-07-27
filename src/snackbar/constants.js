@@ -11,3 +11,4 @@ export const LOG_OUT = "LOG_OUT"
 
 /* file upload */
 export const PREVIEW_SUCCESS = "PREVIEW_SUCCESS"
+export const FILE_NOT_ACCEPTED = "FILE_NOT_ACCEPTED"
