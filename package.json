@@ -11,9 +11,11 @@
     "dev:bundleanalyzer": "yarn client -- --env.addons=bundleanalyzer",
     "server": "nodemon server/app.js",
     "prebuild": "rimraf dist",
-    "build": "cross-env NODE_ENV=production webpack -p --env.env=prod ",
+    "build": "cross-env NODE_ENV=production webpack -p --env.env=prod",
+    "prepublish": "yarn build",
     "build:bundleanalyzer": "yarn build -- --env.addons=bundleanalyzer",
-    "flow": "flow"
+    "flow": "flow",
+    "precommit": "flow"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
@@ -44,6 +46,7 @@
     "wavesurfer.js": "1.4.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.52",
     "@babel/core": "^7.0.0-beta.52",
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.52",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.52",
@@ -51,10 +54,11 @@
     "@babel/plugin-transform-runtime": "^7.0.0-beta.51",
     "@babel/polyfill": "^7.0.0-beta.51",
     "@babel/preset-env": "^7.0.0-beta.52",
+    "@babel/preset-flow": "^7.0.0-beta.55",
     "@babel/preset-react": "^7.0.0-beta.52",
     "@babel/runtime": "^7.0.0-beta.51",
     "babel-cli": "^6.26.0",
-    "babel-eslint": "^8.2.3",
+    "babel-eslint": "^8.2.6",
     "babel-loader": "^8.0.0-beta.4",
     "babel-plugin-redux-saga": "^1.0.0-beta.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -65,8 +69,12 @@
     "chalk": "^2.4.1",
     "cross-env": "^5.1.6",
     "css-loader": "^0.28.11",
+    "eslint": "^5.2.0",
+    "eslint-loader": "^2.1.0",
+    "eslint-plugin-react": "^7.10.0",
+    "eslint-watch": "^4.0.2",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "flow-bin": "^0.76.0",
+    "flow-bin": "^0.77.0",
     "flow-remove-types": "^1.2.3",
     "html-webpack-plugin": "^3.2.0",
     "img-loader": "^3.0.0",
