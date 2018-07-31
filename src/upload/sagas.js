@@ -1,26 +1,30 @@
-import { call, put, take, takeEvery } from "redux-saga/effects"
-import { UPLOAD_REQUEST, UPLOAD_REJECT, UPLOAD_PROGRESS, UPLOAD_SUCCESS, UPLOAD_ERROR } from "./constants"
-import { snackbarRequest } from "../snackbar/actions"
-import { PREVIEW_SUCCESS, FILE_NOT_ACCEPTED } from "../snackbar/constants"
-import createFileUploadChannel from "./createFileUploadChannel"
+import {
+  call, put, take, takeEvery
+} from 'redux-saga/effects';
+import {
+  UPLOAD_REQUEST, UPLOAD_REJECT, UPLOAD_PROGRESS, UPLOAD_SUCCESS, UPLOAD_ERROR
+} from './constants';
+import { snackbarRequest } from '../snackbar/actions';
+import { PREVIEW_SUCCESS, FILE_NOT_ACCEPTED } from '../snackbar/constants';
+import createFileUploadChannel from './createFileUploadChannel';
 
 // Upload the specified file
 function* uploadFileFlow(file) {
-  const channel = yield call(createFileUploadChannel, "/some/path", file)
+  const channel = yield call(createFileUploadChannel, '/some/path', file);
   while (true) {
-    const {progress = 0, error, success} = yield take(channel)
+    const { progress = 0, error, success } = yield take(channel);
     if (error) {
-      yield put({type: UPLOAD_ERROR, error})
-      return
+      yield put({ type: UPLOAD_ERROR, error });
+      return;
     }
     if (success) {
-      yield put({type: UPLOAD_SUCCESS, file})
-      return
+      yield put({ type: UPLOAD_SUCCESS, file });
+      return;
     }
-    
+
     // show snackbar notification
-    yield put(snackbarRequest({snackbarType: PREVIEW_SUCCESS, snackbarOpen: true}))
-    yield put({type: UPLOAD_PROGRESS, file, progress})
+    yield put(snackbarRequest({ snackbarType: PREVIEW_SUCCESS, snackbarOpen: true }));
+    yield put({ type: UPLOAD_PROGRESS, file, progress });
   }
 }
 
@@ -29,13 +33,13 @@ function* uploadFileFlow(file) {
 
 function* uploadFileWatcher() {
   yield takeEvery(UPLOAD_REJECT, function* () {
-    yield put(snackbarRequest({snackbarType: FILE_NOT_ACCEPTED, snackbarOpen: true}))
-  })
-  
+    yield put(snackbarRequest({ snackbarType: FILE_NOT_ACCEPTED, snackbarOpen: true }));
+  });
+
   yield takeEvery(UPLOAD_REQUEST, function* (action) {
-    const file = action.file
-    yield call(uploadFileFlow, file)
-  })
+    const file = action.file;
+    yield call(uploadFileFlow, file);
+  });
 }
 
-export default uploadFileWatcher
+export default uploadFileWatcher;

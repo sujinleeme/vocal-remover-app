@@ -1,5 +1,5 @@
-import history from "../history"
+import history from '../history';
 
 export const forwardTo = (location) => {
-	history.push(location)
-}
+  history.push(location);
+};

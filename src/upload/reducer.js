@@ -1,7 +1,7 @@
 import {
   UPLOAD_RESET, UPLOAD_REQUEST, UPLOAD_SUCCESS, UPLOAD_ERROR,
   UPLOAD_PROGRESS, UPLOAD_REJECT
-} from "./constants"
+} from './constants';
 
 const initialState = {
   file: null,
@@ -10,7 +10,7 @@ const initialState = {
   progress: 0,
   messages: [],
   errors: []
-}
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -22,17 +22,17 @@ const reducer = (state = initialState, action) => {
         progress: 0,
         messages: [],
         errors: []
-      }
+      };
     case UPLOAD_REQUEST:
       return {
         file: null,
         requesting: true,
         successful: false,
         progress: 0,
-        messages: [{body: "Uploading...", time: new Date()}],
+        messages: [{ body: 'Uploading...', time: new Date() }],
         errors: []
-      }
-    
+      };
+
     case UPLOAD_SUCCESS:
       return {
         file: action.file,
@@ -41,11 +41,11 @@ const reducer = (state = initialState, action) => {
         progress: 100,
         errors: [],
         messages: [{
-          body: `Successfully save file.`,
+          body: 'Successfully save file.',
           time: new Date()
         }]
-      }
-    
+      };
+
     case UPLOAD_ERROR:
       return {
         file: state.file,
@@ -57,8 +57,8 @@ const reducer = (state = initialState, action) => {
           time: new Date()
         }]),
         messages: []
-      }
-    
+      };
+
     case UPLOAD_PROGRESS:
       return {
         file: action.file,
@@ -67,11 +67,11 @@ const reducer = (state = initialState, action) => {
         progress: action.progress,
         errors: [],
         messages: []
-      }
-    
-    default:
-      return state
-  }
-}
+      };
 
-export default reducer
+    default:
+      return state;
+  }
+};
+
+export default reducer;

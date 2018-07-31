@@ -1,21 +1,15 @@
-import * as actionTypes from "./constants"
+import * as actionTypes from './constants';
 
-export const setIsPlaying = (isPlaying) => {
-  return {
-    type: actionTypes.SET_IS_PLAYING,
-    isPlaying
-  }
-}
+export const setIsPlaying = isPlaying => ({
+  type: actionTypes.SET_IS_PLAYING,
+  isPlaying
+});
 
-export const setTrackVolume = (volume) => {
-  return {
-    type: actionTypes.SET_VOLUME,
-    volume
-  }
-}
+export const setTrackVolume = volume => ({
+  type: actionTypes.SET_VOLUME,
+  volume
+});
 
-export const emptyPlaylist = () => {
-  return {
-    type: actionTypes.RESET_PLAYLIST
-  }
-}
+export const emptyPlaylist = () => ({
+  type: actionTypes.RESET_PLAYLIST
+});

@@ -1,19 +1,13 @@
-import { UPLOAD_REQUEST, UPLOAD_RESET, UPLOAD_REJECT } from "./constants"
+import { UPLOAD_REQUEST, UPLOAD_RESET, UPLOAD_REJECT } from './constants';
 
-export const uploadRequest = ({file}) => {
-  return {
-    type: UPLOAD_REQUEST,
-    file
-  }
-}
+export const uploadRequest = ({ file }) => ({
+  type: UPLOAD_REQUEST,
+  file
+});
 
-export const uploadReset = () => {
-  return {
-    type: UPLOAD_RESET,
-  }
-}
-export const uploadReject = () => {
-  return {
-    type: UPLOAD_REJECT,
-  }
-}
+export const uploadReset = () => ({
+  type: UPLOAD_RESET,
+});
+export const uploadReject = () => ({
+  type: UPLOAD_REJECT,
+});

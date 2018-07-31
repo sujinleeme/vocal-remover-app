@@ -1,9 +1,7 @@
-import { SIGNUP_REQUESTING, LOGOUT } from "./constants"
+import { SIGNUP_REQUESTING, LOGOUT } from './constants';
 
-export const signupRequest = ({response, channel}) => {
-	return {
-		type: SIGNUP_REQUESTING,
-		response,
-		channel
-	}
-}
+export const signupRequest = ({ response, channel }) => ({
+  type: SIGNUP_REQUESTING,
+  response,
+  channel
+});

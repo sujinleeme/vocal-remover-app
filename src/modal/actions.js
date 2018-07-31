@@ -1,9 +1,7 @@
-import { MODAL_REQUESTING } from "./constants"
+import { MODAL_REQUESTING } from './constants';
 
-export const modalRequest = ({modalType, modalOpen}) => {
-	return {
-		type: MODAL_REQUESTING,
-		modalType,
-		modalOpen,
-	}
-}
+export const modalRequest = ({ modalType, modalOpen }) => ({
+  type: MODAL_REQUESTING,
+  modalType,
+  modalOpen,
+});

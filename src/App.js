@@ -1,46 +1,41 @@
-import React from "react"
-import { Switch, Route } from "react-router-dom"
-import importedComponent from "react-imported-component"
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import importedComponent from 'react-imported-component';
 
-import Header from "./header"
-import Footer from "./footer"
-import Home from "./pages/Home"
-import Loading from "./components/Loading"
-import SigninModal from "./modal"
-import SnackBar from "./snackbar"
+import Header from './header';
+import Footer from './footer';
+import Home from './pages/Home';
+import Loading from './components/Loading';
+import SigninModal from './modal';
+import SnackBar from './snackbar';
 
-const MyPage = importedComponent(() =>
-  import(/* webpackChunkName:'MyPage' */ "./pages/MyPage"), {
+const MyPage = importedComponent(() => import(/* webpackChunkName:'MyPage' */ './pages/MyPage'), {
   LoadingComponent: Loading
-})
+});
 
-const AsyncNoMatch = importedComponent(() =>
-  import(/* webpackChunkName:'NoMatch' */ "./components/NoMatch"), {
+const AsyncNoMatch = importedComponent(() => import(/* webpackChunkName:'NoMatch' */ './components/NoMatch'), {
   LoadingComponent: Loading
-})
+});
 
-const Upload = importedComponent(() =>
-  import(/* webpackChunkName:'UploadPage' */ "./pages/UploadPage"), {
+const Upload = importedComponent(() => import(/* webpackChunkName:'UploadPage' */ './pages/UploadPage'), {
   LoadingComponent: Loading
-})
+});
 
-const App = () => {
-  return (
-    <div style={{
-      height: "100vh"
-    }}>
-      <Header/>
-      <SigninModal/>
-      <SnackBar/>
+const App = () => (
+  <div>
+    <div style={{ minHeight: '100vh' }}>
+      <Header />
       <Switch>
-        <Route exact path="/" component={ Home }/>
-        <Route exact path="/me" component={ MyPage }/>
-        <Route exact path="/upload" component={ Upload }/>
-        <Route component={ AsyncNoMatch }/>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/me" component={MyPage} />
+        <Route exact path="/upload" component={Upload} />
+        <Route component={AsyncNoMatch} />
       </Switch>
-      <Footer/>
     </div>
-  )
-}
+    <SigninModal />
+    <SnackBar />
+    <Footer />
+  </div>
+);
 
-export default App
+export default App;

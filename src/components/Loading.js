@@ -1,8 +1,7 @@
-import React from "react"
-import PropTypes from "prop-types"
-import LinearProgress from "@material-ui/core/LinearProgress"
-import ReactDelayRender from "react-delay-render"
+import React from 'react';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import ReactDelayRender from 'react-delay-render';
 
-const Loading = () => <LinearProgress />
+const Loading = () => <LinearProgress />;
 
-export default ReactDelayRender({delay: 300})(Loading)
+export default ReactDelayRender({ delay: 300 })(Loading);

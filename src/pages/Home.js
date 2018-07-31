@@ -1,16 +1,10 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import Layout from "../components/Layout"
-import AudioFileDropZone from "../components/AudioFileDropZone"
+import React from 'react';
+import Layout from '../components/Layout';
 
-const Home = () => {
-	return (
-		<div>
-			<Layout>
-				welcome home
-			</Layout>
-		</div>
-	)
-}
+const Home = () => (
+  <Layout>
+    welcome home
+  </Layout>
+);
 
-export default Home
+export default Home;

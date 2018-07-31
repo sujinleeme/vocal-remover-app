@@ -11,13 +11,6 @@
     "dev:bundleanalyzer": "yarn client -- --env.addons=bundleanalyzer",
     "server": "nodemon server/app.js",
     "prebuild": "rimraf dist",
-    "precommit": "lint-staged",
-    "lint-staged": {
-      "src/**/*.js": [
-        "eslint --fix",
-        "git add"
-      ]
-    },
     "build": "cross-env NODE_ENV=production webpack -p --env.env=prod ",
     "build:bundleanalyzer": "yarn build -- --env.addons=bundleanalyzer",
     "flow": "flow"
