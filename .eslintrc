@@ -1,64 +1,53 @@
 {
-  parser: "babel-eslint",
-  "plugins": [
-    "react"
-  ],
+  "parser": "babel-eslint",
+  "extends": ["airbnb"],
   "rules": {
-    // first argument: 0 - silent, 1 - warning, 2 - error
-    "strict": [
-      2,
-      "safe"
-    ],
-    "no-debugger": 2,
-    "brace-style": [
-      2,
-      "1tbs",
-      {
-        "allowSingleLine": true
-      }
-    ],
-    "no-trailing-spaces": 2,
-    "keyword-spacing": 2,
-    "space-before-function-paren": [
-      2,
-      "never"
-    ],
-    "spaced-comment": [
-      2,
-      "always"
-    ],
-    "vars-on-top": 2,
-    "no-undef": 2,
-    "no-undefined": 2,
-    "comma-dangle": [
-      2,
-      "never"
-    ],
-    "quotes": [
-      2,
-      "double"
-    ],
-    "semi": [
-      2,
-      "never"
-    ],
-    "guard-for-in": 2,
-    "no-eval": 2,
-    "no-with": 2,
-    "valid-typeof": 2,
-    "no-unused-vars": 2,
-    "no-continue": 1,
-    "no-extra-semi": 1,
-    "no-unreachable": 1,
-    "no-unused-expressions": 1,
-    "no-magic-numbers": 1,
-    "max-len": [
-      1,
-      80,
-      4
-    ],
-    "react/prefer-es6-class": 1
-  }
+    "react/prop-types": 0,
+    "react/jsx-no-target-blank": 0,
+    "comma-dangle": 0,
+    "prefer-destructuring": ["error", {"object": false, "array": false}],
+    "consistent-return": 0,
+    "camelcase": 0,
 
-  //  "extends": ["eslint:recommended", "plugin:react/recommended"]
+
+
+    //    "react/jsx-no-bind": 0,
+    //    "react/jsx-filename-extension": 0,
+    //    "react/forbid-prop-types": 0,
+    //    "react/jsx-curly-spacing": 0,
+    //    "react/no-unused-prop-types": 0,
+    //    "react/jsx-space-before-closing": 0,
+    //    "react/no-string-refs": 0,
+    //    "react/self-closing-comp": 0,
+    //    "react/no-find-dom-node": 0,
+    //    "react/jsx-indent": 0,
+    //    "react/prefer-stateless-function": 0,
+    //    "jsx-a11y/no-static-element-interactions": 0,
+    //    "import/no-named-as-default": 0,
+    //    "import/prefer-default-export": 0,
+    //    "no-plusplus": 0,
+    //    "import/first": 0,
+    //    "arrow-parens": 0,
+    //    "class-methods-use-this": 0,
+    //    "no-undef": 0,
+    //    "camelcase": 0,
+    //    "default-case": 0,
+    //    "comma-dangle": 0,
+    //    "consistent-return": 0,
+    //    "no-new": 0,
+    //    "prefer-template": 0,
+    //    "quotes": 0,
+    //    "new-cap": 0,
+    //    "no-else-return": 0,
+    //    "arrow-body-style": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-one-expression-per-line": "error",
+    "react/jsx-indent": ["error", 2],
+    "no-use-before-define": 0,
+    "no-shadow": "off",
+    "space-before-function-paren": [2, { "anonymous": "never", "named": "never" }],
+    "max-len": [1, 120, 2, {"ignoreComments": true}],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+  }
 }
+
