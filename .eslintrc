@@ -2,6 +2,8 @@
   "parser": "babel-eslint",
   "extends": ["airbnb"],
   "rules": {
+    "global-require": 0,
+    "import/prefer-default-export": 0,
     "react/prop-types": 0,
     "react/jsx-no-target-blank": 0,
     "comma-dangle": 0,
@@ -15,7 +17,10 @@
     "no-shadow": "off",
     "space-before-function-paren": [2, { "anonymous": "never", "named": "never" }],
     "max-len": [1, 120, 2, {"ignoreComments": true}],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
-  }
+    "import/no-extraneous-dependtencies": ["error", { "devDependencies": true }]
+  },
+  "plugins": [
+    "redux-saga"
+  ]
 }
 
