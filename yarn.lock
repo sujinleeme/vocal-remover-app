@@ -7155,9 +7155,9 @@ watchpack@^1.5.0:
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
 
-wavesurfer.js@2.0.6:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/wavesurfer.js/-/wavesurfer.js-2.0.6.tgz#4333b31f4a56d6f2c56d429da83ccd8e35cb7f20"
+wavesurfer.js@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/wavesurfer.js/-/wavesurfer.js-1.4.0.tgz#4dba66098e736615d963fa85c7476fbd7e09c565"
 
 wbuf@^1.1.0, wbuf@^1.7.2:
   version "1.7.3"
