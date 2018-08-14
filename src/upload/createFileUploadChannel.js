@@ -1,3 +1,6 @@
+/* eslint-disable */
+
+
 /* refs
 https://decembersoft.com/posts/file-upload-progress-with-redux-saga/
  */

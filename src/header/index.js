@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import {
@@ -24,7 +23,7 @@ const styles = theme => ({
     marginRight: 20
   },
   avatar: {
-    margin: 0,
+    margin: 0
   },
   bigAvatar: {
     width: 60,
@@ -36,7 +35,7 @@ const styles = theme => ({
     paddingLeft: theme.spacing.unit * 2,
     paddingRight: theme.spacing.unit * 2,
     marginRight: theme.spacing.unit * 2,
-    color: 'white',
+    color: 'white'
   },
   rightIcon: {
     marginLeft: theme.spacing.unit
@@ -48,41 +47,32 @@ const Header = ({ classes, modalRequest, user }) => (
     <Toolbar className={classes.root}>
       <Link to="/">
         <Typography variant="title" color="inherit">
-            Vocal Remover
-
-
+          Vocal Remover
         </Typography>
       </Link>
-      { user
-			  ? (
-  <div className={classes.user}>
-    <Link to="/upload">
-      <Button className={classes.button}>
+      { user ? (
+        <div className={classes.user}>
+          <Link to="/upload">
+            <Button className={classes.button}>
                 upload
-
-
-        <CloudUploadIcon className={classes.rightIcon} />
-      </Button>
-    </Link>
-    <UserDropdownMenu />
-  </div>
-			  )
-			  : (
-  <Button
-    className={classes.button}
-    onClick={() => modalRequest({ modalOpen: true, modalType: SIGN_IN_MODAL })}
-  >
-Sign in
-
-
-  </Button>
-			  ) }
+              <CloudUploadIcon className={classes.rightIcon} />
+            </Button>
+          </Link>
+          <UserDropdownMenu />
+        </div>
+      )
+        : (
+          <Button
+            className={classes.button}
+            onClick={() => modalRequest({ modalOpen: true, modalType: SIGN_IN_MODAL })}
+          >
+            Sign in
+          </Button>
+        )
+      }
     </Toolbar>
   </AppBar>
 );
-Header.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 const mapStateToProps = state => ({
   user: state.client.user

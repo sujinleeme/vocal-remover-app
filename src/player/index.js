@@ -1,7 +1,7 @@
 import React from 'react';
 import WaveSurfer from 'react-wavesurfer';
 import {
-  Button, Icon, Paper, withStyles, Typography, Input, Grid
+  Button, Icon, Paper, withStyles, Typography
 } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { setIsPlaying } from './actions';
@@ -56,16 +56,13 @@ class AudioPlayer extends React.Component {
       pos: 0
     };
     this.handlePosChange = this.handlePosChange.bind(this);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
-  }
-
-  handleKeyPress(e) {
-    console.log(e);
   }
 
   handlePosChange(e) {
     const { isPlaying, setIsPlaying } = this.props;
-    !isPlaying && setIsPlaying(true);
+    if (!isPlaying) {
+      setIsPlaying(true);
+    }
     this.setState({
       pos: e.originalArgs[0]
     });
@@ -82,14 +79,11 @@ class AudioPlayer extends React.Component {
       type: file ? file[0].size : ''
     };
 
-    console.log(cacheAudioFile.url);
     return (
       <Paper className={classes.root}>
         <div
           className={classes.playController}
-          style={{
-					  backgroundImage: `url(${bg})`
-          }}
+          style={{ backgroundImage: `url(${bg})` }}
         >
           <Button
             variant="fab"
@@ -97,21 +91,13 @@ class AudioPlayer extends React.Component {
             color="primary"
             onClick={() => this.props.setIsPlaying(!isPlaying)}
           >
-            { isPlaying
-						  ? (
-  <Icon className={classes.button}>
-pause
-
-
-  </Icon>
-						  )
-						  : (
-  <Icon className={classes.button}>
-play_arrow
-
-
-  </Icon>
-						  ) }
+            { isPlaying ? (
+              <Icon className={classes.button}>
+                pause
+              </Icon>) : (
+                <Icon className={classes.button}>
+                  play_arrow
+                </Icon>) }
           </Button>
         </div>
         <div className={classes.player}>
@@ -122,8 +108,6 @@ play_arrow
               </Typography>
               <Typography variant="body1" gutterBottom>
                 Artist
-
-
               </Typography>
             </div>
           </div>
@@ -134,14 +118,14 @@ play_arrow
               onPosChange={this.handlePosChange}
               playing={isPlaying}
               options={{
-							  hideScrollbar: true,
-							  normalize: true,
-							  barWidth: 3,
-							  cursorColor: 'gray',
-							  height: 100,
-							  fillParent: true,
-							  progressColor: '#3f51b5',
-							  waveColor: 'gray'
+                hideScrollbar: true,
+                normalize: true,
+                barWidth: 3,
+                cursorColor: 'gray',
+                height: 100,
+                fillParent: true,
+                progressColor: '#3f51b5',
+                waveColor: 'gray'
               }}
             />
           </div>

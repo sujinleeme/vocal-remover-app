@@ -4,14 +4,15 @@ import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 
+import 'regenerator-runtime/runtime';
+import { PersistGate } from 'redux-persist/integration/react';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import configureStore from './configureStore';
 import App from './App';
 import './index.css';
 import history from './history';
-import 'regenerator-runtime/runtime';
-import { PersistGate } from 'redux-persist/integration/react';
+
 
 const render = async (Component) => {
   const { store, persistor } = await configureStore();

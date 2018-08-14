@@ -1,18 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-import { signupRequest, signupCancel } from './actions';
+import { signupRequest } from './actions';
 import config from '../social-config.json';
-
-// Signin.propTypes = {
-// 	classes: PropTypes.object.isRequired,
-// 	view: PropTypes.string.isRequired,
-// 	modalRequest: PropTypes.func.isRequired
-// }
-//
 
 const SocialSignInButton = ({
   buttonCSSClass, iconCSSClass, textButton, onClick, channel
@@ -49,7 +41,7 @@ const Signup = (props) => {
         fields="name,email,picture.width(800).height(800)"
         scope="public_profile"
         callback={response => signupRequest({ response, channel: 'facebook' })}
-        onFailure={response => console.log('cancel response')}
+        onFailure={console.log('cancel response')}
         render={renderProps => (
           <SocialSignInButton
             channel="facebook"
@@ -71,4 +63,4 @@ const Signup = (props) => {
   );
 };
 
-export default connect(null, { signupRequest, signupCancel })(Signup);
+export default connect(null, { signupRequest })(Signup);

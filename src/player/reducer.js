@@ -15,8 +15,8 @@ const reducer = (state = initialState, action) => {
       return setIsPlaying(state, action.isPlaying);
     case actionTypes.SET_VOLUME:
       return setVolume(state, action.volume);
-    case actionTypes.RESET_PLAYLIST:
-      return emptyPlaylist(state);
+    // case actionTypes.RESET_PLAYLIST:
+    //   return emptyPlaylist(state);
     default:
       return state;
   }

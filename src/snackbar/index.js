@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Snackbar, IconButton, withStyles } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
@@ -55,10 +54,6 @@ class NotificationBar extends React.Component {
     );
   }
 }
-
-NotificationBar.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 const mapStateToProps = state => ({
   snackbarOpen: state.snackbar.snackbarOpen,

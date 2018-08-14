@@ -1,6 +1,8 @@
-export const SNACKBAR_REQUESTING = 'SNACKBAR_REQUESTING';
-export const SNACKBAR_SUCCESS = 'SNACKBAR_SUCCESS';
-export const SNACKBAR_FAIL = 'SNACKBAR_FAIL';
+// @flow
+
+export const SNACKBAR_REQUESTING:string = 'SNACKBAR_REQUESTING';
+export const SNACKBAR_SUCCESS:string = 'SNACKBAR_SUCCESS';
+export const SNACKBAR_FAIL:string = 'SNACKBAR_FAIL';
 
 
 /* log in */

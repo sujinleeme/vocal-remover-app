@@ -1,6 +1,6 @@
 import {
   UPLOAD_RESET, UPLOAD_REQUEST, UPLOAD_SUCCESS, UPLOAD_ERROR,
-  UPLOAD_PROGRESS, UPLOAD_REJECT
+  UPLOAD_PROGRESS
 } from './constants';
 
 const initialState = {

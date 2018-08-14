@@ -1,6 +1,12 @@
 {
   "parser": "babel-eslint",
   "extends": ["airbnb"],
+  "globals": {
+    "document": false
+  },
+  "plugins": [
+    "redux-saga"
+  ],
   "rules": {
     "global-require": 0,
     "import/prefer-default-export": 0,
@@ -17,10 +23,8 @@
     "no-shadow": "off",
     "space-before-function-paren": [2, { "anonymous": "never", "named": "never" }],
     "max-len": [1, 120, 2, {"ignoreComments": true}],
-    "import/no-extraneous-dependtencies": ["error", { "devDependencies": true }]
-  },
-  "plugins": [
-    "redux-saga"
-  ]
+    "import/no-extraneous-dependencies": 0,
+    "react/destructuring-assignment": [false]
+  }
 }
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {
   withStyles, Avatar, Typography, Paper
@@ -41,9 +40,5 @@ const UserProfile = ({ classes, user }) => (
     }
   </Paper>
 );
-
-UserProfile.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default withStyles(styles)(UserProfile);

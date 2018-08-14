@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   withStyles, AppBar, Toolbar, Typography
 } from '@material-ui/core';
@@ -20,9 +19,5 @@ const Footer = ({ classes }) => (
     </AppBar>
   </div>
 );
-
-Footer.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default withStyles(styles)(Footer);
